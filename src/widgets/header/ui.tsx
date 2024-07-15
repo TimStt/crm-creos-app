@@ -7,10 +7,14 @@ import {
   toggleTheme,
 } from "@/shared/stores/theme-swither";
 import { Link } from "react-router-dom";
+import { useWathedChangeTheme } from "@/features/use-wathed-change-theme";
 
 const Header = () => {
   const theme = useSelector(selectorThemeSwitcher);
   const dispatch = useDispatch();
+
+  useWathedChangeTheme();
+
   return (
     <header className={cls(style.root, "container")}>
       <ButtonTheme
