@@ -1,0 +1,1 @@
+export { useLocaleTranslate } from "./features";

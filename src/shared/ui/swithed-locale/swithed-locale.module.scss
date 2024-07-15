@@ -1,0 +1,42 @@
+@import "../../other-style/mixins";
+
+.root {
+  --gapButtons: 24px;
+  --bgActiveBtn: var(--color-main-text);
+  --colorTextBtnActive: var(--backgraund-color);
+  --colorTextBtn: var(--color-main-text);
+  --colorBorderBtn: var(--color-gray);
+  @include flex-gap(var(--gapButtons));
+
+  &__button {
+    max-height: 44px;
+    @include flex-center-center;
+    transition-duration: var(--duration);
+    transition-property: background-color, color;
+    padding-block: 10px;
+
+    width: 68px;
+    border: 2px solid var(--colorBorderBtn);
+    border-radius: 32px;
+    cursor: pointer;
+    color: var(--colorTextBtn);
+    font-size: 16px;
+    font-weight: 400;
+    border: 2px solid var(--colorBorderBtn);
+
+    @include hover-btn(var(--bgActiveBtn)) {
+      color: var(--colorTextBtnActive);
+    }
+
+    &.isActive {
+      background-color: var(--bgActiveBtn);
+      color: var(--colorTextBtnActive);
+      border: none;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+}

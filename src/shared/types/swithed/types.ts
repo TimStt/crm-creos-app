@@ -23,3 +23,16 @@ export interface IButtonThemeUIProps
   theme?: TSwitchedTheme;
   size?: string;
 }
+
+export interface TLocaleTranslateInitialState {
+  locale: TLocaleTranslate;
+}
+
+export interface ISwithedLocaleTranslateUIProps {
+  locale: TLocaleTranslate;
+  setLocale: (locale: TLocaleTranslate) => void;
+  toggleLocale?: () => void;
+  classname?: string;
+}
+
+export type TLocaleTranslate = "Ru" | "En";
