@@ -1,0 +1,122 @@
+.root {
+  --size: 24px;
+  --iconFill: var(--color-dark);
+  --iconFillHover: var(--color-gray-dark);
+  --timingFunctionEaseElastic: cubic-bezier(0.5, 0, 0.5, 1);
+  --timingFunctionEaseElastic1: cubic-bezier(0.4, 0, 0.6, 1);
+  --timingFunctionEase: cubic-bezier(0.25, 0, 0.3, 1);
+
+  background: none;
+  border: none;
+  padding: 0;
+
+  inline-size: var(--size);
+  block-size: var(--size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  outline-offset: 5px;
+
+  &__sun_and_moon {
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio: 1;
+  }
+
+  @media (hover: none) {
+    --size: 48px;
+  }
+
+  &__sun_and_moon {
+    inline-size: 100%;
+    block-size: 100%;
+    aspect-ratio: 1;
+
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &__sun,
+  &__moon {
+    fill: var(--iconFill);
+  }
+
+  &__sun_beams,
+  &__sun,
+  &__moon {
+    transform-origin: center center;
+  }
+  &:hover,
+  &:focus-visible {
+    .root__sun,
+    .root__moon {
+      fill: var(--iconFillHover);
+    }
+
+    .root__sun_beams {
+      stroke: var(--iconFillHover);
+    }
+  }
+
+  &__sun_beams {
+    stroke: var(--iconFill);
+    stroke-width: 2px;
+  }
+
+  &[data-theme="dark"] {
+    --iconFill: var(--color-gray);
+    --iconFillHover: var(--color-white);
+
+    .root__sun {
+      transform: scale(1.75);
+    }
+
+    .root__sun_beams {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .root__sun {
+      transition-property: transform, fill;
+      transition-duration: var(--duration);
+      transition-timing-function: var(--timingFunctionEaseElastic);
+    }
+
+    .root__sun_beams {
+      transition-property: transform, opacity;
+      transition-duration: var(--duration);
+      transition-timing-function: var(--timingFunctionEaseElastic1);
+    }
+    &[data-theme="dark"] {
+      .root__sun {
+        transform: scale(1.75);
+        transition-timing-function: var(--timingFunctionEase);
+        transition-duration: 0.25s;
+      }
+
+      .root__sun_beams {
+        transform: rotateZ(-25deg);
+        transition-duration: 0.15s;
+      }
+
+      .root__moon > circle {
+        transition-property: transform;
+        transition-duration: 0.25s;
+        transition-timing-function: var(--timingFunctionEase);
+
+        @supports (cx: 1) {
+          transform: translateX(0);
+          cx: 17;
+          transition-property: cx;
+          transition-duration: 0.25s;
+          transition-timing-function: var(--timingFunctionEase);
+        }
+      }
+    }
+  }
+}

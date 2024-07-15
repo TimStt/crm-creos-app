@@ -1,0 +1,75 @@
+@import "../../../shared/other-style/mixins",
+  "../../../shared/other-style/adaptive";
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+
+  // &::-webkit-scrollbar {
+  //   width: 8px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   /* плашка-бегунок */
+  //   height: 20px;
+  //   border-radius: 10px;
+  //   transition-property: background;
+  //   transition-duration: var(--duration);
+  //   background-color: var(--color-light-violet);
+  //   &:hover {
+  //     background: var(--color-violet);
+  //   }
+  // }
+  // &::-webkit-scrollbar-track {
+  //   /* фон */
+  //   background-color: transparent; /* фон */
+  // }
+
+  &[data-theme="light"] {
+    --backgraund-color: var(--color-white);
+    --color-main-text: var(--color-dark);
+  }
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  line-height: 24px;
+  color: var(--color-main-text);
+  background-color: var(--backgraund-color);
+  font-size: var(--font-size-main);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+  transition-duration: var(--duration);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+  display: flex;
+}
+
+footer {
+  width: 100%;
+}

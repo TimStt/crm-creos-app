@@ -1,0 +1,67 @@
+.root {
+  display: inline-block;
+  --colorFocus: #224576;
+  --borderRadius: 20px;
+
+  &--square {
+    --borderRadius: 2px;
+  }
+
+  &__text {
+    letter-spacing: 0.03rem;
+    position: relative;
+    display: inline-block;
+    padding-right: 100px;
+    user-select: none;
+    transition: color 0.3s;
+
+    &::before {
+      transition: all 0.1s linear;
+      display: block;
+      content: "";
+      background-color: var(--color-white);
+      width: 70px;
+      height: 33px;
+      border-radius: var(--borderRadius);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0%, -50%);
+    }
+
+    &:after {
+      transition: all 0.1s linear;
+      display: block;
+      position: absolute;
+      content: "";
+      width: 24px;
+      height: 24px;
+      border-radius: var(--borderRadius);
+      background-color: var(--color-dark);
+      right: 41px;
+      top: 50%;
+      transform: translate(0%, -50%);
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    appearance: none;
+  }
+
+  &__checkbox:checked + &__text::before {
+    background-color: var(--color-accent);
+  }
+
+  &__checkbox:checked + &__text::after {
+    background-color: var(--color-white);
+    right: 8px;
+  }
+}
+
+/* .header__menu__checkbox:checked + .buys__goods__filter__inner{
+    color: var(--color-green-main);
+} */

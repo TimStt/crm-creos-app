@@ -1,0 +1,117 @@
+// position
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center-beetwen {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin inline-flex-center {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-gap($gap: 10) {
+  display: flex;
+  gap: #{$gap};
+}
+
+@mixin fluid-text($max: 48, $min: 16, $property: font-size) {
+  #{$property}: clamp(#{$min}px, #{$max / 1527 * 100}vw, #{$max}px);
+}
+
+@mixin reset-link {
+  color: inherit;
+
+  &,
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+@mixin reset-button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+}
+
+// styles
+
+@mixin hidden-element {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+@mixin square($size) {
+  width: $size;
+  aspect-ratio: 1;
+}
+
+@mixin hover-btn($hover-bg, $active-bg: $hover-bg) {
+  &:active {
+    background-color: $active-bg;
+    @content;
+  }
+  @media (hover: hover) {
+    &:hover {
+      background-color: $hover-bg;
+      @content;
+    }
+  }
+}
+@mixin px-to-rem($property, $value) {
+  $remValue: $value / 16;
+  $pxValue: ($value);
+  #{$property}: #{$remValue}rem;
+}
+
+@mixin position-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+}
+
+@mixin bgGradient($rgb) {
+  background: linear-gradient(
+    180deg,
+    rgba(#{$rgb}, 0) 0%,
+    rgba(#{$rgb}, 0.9) 73%,
+    rgba(#{$rgb}, 1) 100%,
+    rgb(#{$rgb}) 95%
+  );
+}
+
+@mixin autocomplete-input($bg, $color: #fff) {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: $color;
+    transition: background-color 5000s ease-in-out 0s;
+    box-shadow: inset 0 0 20px 20px $bg;
+  }
+}

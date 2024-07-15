@@ -1,0 +1,46 @@
+@import "../../../shared/other-style/mixins";
+.container {
+  margin-inline: auto;
+  max-width: calc(var(--container-max-width) + var(--container-padding-x) * 2);
+  padding-inline: var(--container-padding-x);
+  width: 100%;
+}
+
+.visually-hidden {
+  @include hidden-element;
+}
+
+.btn-reset {
+  @include reset-button;
+}
+.input-reset {
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  resize: none;
+
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.text__uppercase {
+  text-transform: uppercase;
+}

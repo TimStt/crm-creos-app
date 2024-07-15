@@ -1,0 +1,30 @@
+@import "../../shared/other-style/mixins";
+.root {
+  --navBackgroundColor: var(--color-white);
+  --navBorderRadius: 20px;
+  --navPadding: 10px;
+  height: var(--height-header);
+  padding-block: 10px;
+  @include flex-center-beetwen;
+
+  &__nav {
+    background-color: var(--color-white);
+    border-radius: var(--navBorderRadius);
+    padding: var(--navPadding);
+  }
+
+  &__list {
+    @include flex-gap(20px);
+
+    a {
+      color: var(--color-dark);
+      transition-property: background-color;
+      transition-duration: var(--duration);
+      padding: 5px 10px;
+      border-radius: 10px;
+      &:hover {
+        background-color: var(--color-accent);
+      }
+    }
+  }
+}
