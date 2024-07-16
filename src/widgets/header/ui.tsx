@@ -8,17 +8,16 @@ import {
 } from "@/shared/stores/theme-swither";
 import { Link } from "react-router-dom";
 import { useWathedChangeTheme } from "@/features/use-wathed-change-theme";
-import { useLocaleTranslate } from "@/features/use-locale-translate";
+
 import { SwithedLocale } from "@/shared/ui/swithed-locale";
 import { selectorLocale, setLocale } from "@/shared/stores/locale-translate";
 import { TLocaleTranslate } from "@/shared/types/swithed";
+import { localeTranslate } from "@/shared/config/locale-translate";
 
 const Header = () => {
   const theme = useSelector(selectorThemeSwitcher);
   const locale = useSelector(selectorLocale);
   const dispatch = useDispatch();
-
-  const localeTranslate = useLocaleTranslate();
 
   useWathedChangeTheme();
 
@@ -33,12 +32,26 @@ const Header = () => {
       <nav className={style.root__nav}>
         {" "}
         <ul className={style.root__list}>
-          {" "}
-          <li>
-            <Link to="/tasks">{localeTranslate.task}</Link>{" "}
+          <li
+            className={cls(style.root__list__item, {
+              [style.isActive]: location.pathname === "/",
+            })}
+          >
+            <Link to="/">{localeTranslate[locale].other.home}</Link>{" "}
+          </li>
+          <li
+            className={cls(style.root__list__item, {
+              [style.isActive]: location.pathname === "/tasks",
+            })}
+          >
+            <Link to="/tasks">{localeTranslate[locale].other.tasks}</Link>{" "}
           </li>{" "}
-          <li>
-            <Link to="/design">{localeTranslate.design}</Link>
+          <li
+            className={cls(style.root__list__item, {
+              [style.isActive]: location.pathname === "/design",
+            })}
+          >
+            <Link to="/design">{localeTranslate[locale].other.design}</Link>
           </li>{" "}
         </ul>{" "}
       </nav>

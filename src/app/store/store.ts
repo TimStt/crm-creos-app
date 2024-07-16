@@ -2,6 +2,8 @@
 
 import { localeTranslateSlice } from "@/shared/stores/locale-translate";
 import { themeSwitcherSlice } from "@/shared/stores/theme-swither";
+import { lastCommitsSlice } from "@/widgets/commits/store";
+
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
   persistStore,
@@ -21,6 +23,7 @@ import storage from "redux-persist/lib/storage"; // Используем localSt
 const rootReducer = combineReducers({
   themeSwitcher: themeSwitcherSlice.reducer,
   localeTranslate: localeTranslateSlice.reducer,
+  lastCommitsWithUssue: lastCommitsSlice.reducer,
 });
 
 // Конфигурация для redux-persist

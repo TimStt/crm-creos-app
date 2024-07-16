@@ -1,1 +1,1 @@
-export { ruLocaleTranslate, enLocaleTranslate } from "./locale-translate";
+export { localeTranslate } from "./locale-translate";
