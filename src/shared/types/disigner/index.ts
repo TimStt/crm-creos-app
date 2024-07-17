@@ -1,1 +1,7 @@
-export type { IDesigner, IIssueDisigner, IThumbnails } from "./types";
+export type {
+  IDesigner,
+  IIssueDisigner,
+  IThumbnails,
+  IDesignerTop,
+  IUseGetTopDesignerParams,
+} from "./types";

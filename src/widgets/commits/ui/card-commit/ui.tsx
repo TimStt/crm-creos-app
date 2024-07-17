@@ -7,6 +7,9 @@ import { getRelativeDate } from "@/shared/utils/get-relative-date";
 
 const CardCommit = ({ commit }: { commit: IComment }) => {
   const locale = useSelector(selectorLocale);
+  const { mounth, days, hours, min } = getRelativeDate(
+    new Date(commit.date_created)
+  );
   const { issue } = commit;
   return (
     <article className={style.root}>
@@ -28,7 +31,16 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
           {" "}
           {localeTranslate[locale].other.a_comment_has_been_left}:
         </label>
-        <span> {getRelativeDate(new Date(commit.date_created), locale)}</span>
+        <span>
+          {`${
+            mounth ? localeTranslate[locale].time[`_${mounth}_months_ago`] : ""
+          } ${days ? localeTranslate[locale].time[`_${days}_days_ago`] : ""} ${
+            localeTranslate[locale].time[`_${hours}_hours_ago`]
+          } ${localeTranslate[locale].time[`_${min}_minutes_ago`]} ${
+            localeTranslate[locale].time.ago
+          }
+  `}
+        </span>
       </div>
 
       <div className={style.root__group}>

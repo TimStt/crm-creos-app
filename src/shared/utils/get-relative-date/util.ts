@@ -1,9 +1,10 @@
-import { localeTranslate } from "@/shared/config/locale-translate";
-import { TLocaleTranslate } from "@/shared/types/swithed";
-
-export const getRelativeDate = (date: Date, locale: TLocaleTranslate) => {
-  const currentDate = new Date();
-  const diff = currentDate.getTime() - date.getTime();
+export const getRelativeDate = (
+  startDate: Date,
+  isFullData: boolean = true,
+  endData?: Date
+) => {
+  const currentDate = endData ? endData : new Date();
+  const diff = currentDate.getTime() - startDate.getTime();
 
   let min: number = 0;
   let hours: number = 0;
@@ -11,7 +12,7 @@ export const getRelativeDate = (date: Date, locale: TLocaleTranslate) => {
 
   let days = diff / (24 * 60 * 60 * 1000);
 
-  if (!Number.isInteger(days)) {
+  if (isFullData && !Number.isInteger(days)) {
     hours = (days - Math.floor(days)) * 24;
     days = Math.floor(days);
 
@@ -25,14 +26,20 @@ export const getRelativeDate = (date: Date, locale: TLocaleTranslate) => {
       hours = Math.floor(hours);
     }
   }
-  console.log(days, hours, min);
 
-  return `${
-    mounth ? localeTranslate[locale].time[`_${mounth}_months_ago`] : ""
-  } ${days ? localeTranslate[locale].time[`_${days}_days_ago`] : ""} ${
-    localeTranslate[locale].time[`_${hours}_hours_ago`]
-  } ${localeTranslate[locale].time[`_${min}_minutes_ago`]} ${
-    localeTranslate[locale].time.ago
+  if (!isFullData) {
+    return {
+      mounth: Math.floor(days / 30),
+      days: Math.floor(days),
+      hours: Math.floor(days * 24),
+      min: Math.floor(days * 24 * 60),
+    };
   }
-  `;
+
+  return {
+    mounth,
+    days,
+    hours,
+    min,
+  };
 };

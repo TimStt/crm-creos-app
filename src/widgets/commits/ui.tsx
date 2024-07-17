@@ -32,7 +32,9 @@ const Commits = () => {
         {localeTranslate[locale].titles.recent_comments_on_the_tasks}
       </h2>
       {loadingCommits ? (
-        <Spinner size={50} />
+        <div className={style.root__spinner}>
+          <Spinner size={50} />
+        </div>
       ) : lastCommits?.length ? (
         <>
           <ul className={style.root__list}>

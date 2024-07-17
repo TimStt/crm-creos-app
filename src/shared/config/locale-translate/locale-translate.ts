@@ -15,6 +15,8 @@ export const localeTranslate = {
       done: "Выполнено",
       in_progress: "В процессе",
       comment: "Комментарий",
+      task_count: "Количество  выполненных задач",
+      mediana_tasks: "Медиана выполненных задач",
     },
     titles: {
       recent_comments_on_the_tasks: "Последние комментарии к задачам",
@@ -25,6 +27,10 @@ export const localeTranslate = {
       week: "неделя",
       weeks: "недели",
       ago: "назад",
+      hours: "часы",
+      days: "дни",
+      min: "минуты",
+      mounth: "месяцы",
 
       _30_days_ago: "30 дней",
       _29_days_ago: "29 дней",
@@ -185,6 +191,8 @@ export const localeTranslate = {
       a_comment_has_been_left: "A comment has been left",
       designer_name: "Designer's name",
       comment: "Comment",
+      mediana_tasks: "Median tasks completed",
+      task_count: "Task count",
     },
     titles: {
       recent_comments_on_the_tasks: "Recent comments on the tasks",
@@ -195,6 +203,11 @@ export const localeTranslate = {
       weeks: "Weeks",
       week: "Week",
       ago: "ago",
+
+      hours: "hours",
+      days: "days",
+      min: "min",
+      mounth: "mounth",
       _30_days_ago: "30 days ago",
       _29_days_ago: "29 days ago",
       _28_days_ago: "28 days ago",

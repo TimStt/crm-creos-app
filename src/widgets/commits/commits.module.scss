@@ -1,14 +1,19 @@
 @import "../../shared/other-style/mixins";
 
 .root {
-  margin-block: 100px 30px;
+  margin-block: 100px 72px;
+
+  &__spinner {
+    position: relative;
+    min-height: 300px;
+  }
 
   &__title {
     font-size: 36px;
     margin-bottom: 36px;
   }
   &__list {
-    @include flex-gap(40px);
+    @include flex-gap(60px);
     max-width: 100%;
     padding-bottom: 24px;
 

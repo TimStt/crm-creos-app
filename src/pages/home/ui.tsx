@@ -5,7 +5,8 @@ const Home = () => {
   return (
     <>
       <h1 className="visually-hidden">CRM Creos</h1>
-      <Commits /> <TopDesigner />
+      <Commits />
+      <TopDesigner />
     </>
   );
 };

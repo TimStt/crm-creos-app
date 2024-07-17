@@ -1,1 +1,0 @@
-export { getOneIssue } from "./api";

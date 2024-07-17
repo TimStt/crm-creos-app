@@ -21,3 +21,17 @@ export interface IThumbnails {
   avatar_webp: string;
   avatar_webp_2x: string;
 }
+
+export interface IDesignerTop {
+  avatar: string;
+  username: string;
+  mediantime: number;
+  task_count: number;
+}
+
+export interface IUseGetTopDesignerParams {
+  limit: number;
+  medianUnit?: TUnitData;
+}
+
+export type TUnitData = "hours" | "days" | "min" | "mounth";

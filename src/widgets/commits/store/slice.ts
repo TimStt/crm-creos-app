@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { getCommentsWithIssue } from "../../../shared/api/disigner/get-commets-with-ussue";
+import { getCommentsWithIssue } from "../../../shared/api/commits/get-commets-with-ussue";
 import { IGetCommentsWithIssue } from "@/shared/types/api";
 import { IComment, ILastCommitsState } from "@/shared/types/comment";
 
