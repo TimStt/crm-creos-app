@@ -1,0 +1,1 @@
+export { useSetDefoultQuery } from "./hook";

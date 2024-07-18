@@ -33,6 +33,7 @@ body {
   &[data-theme="light"] {
     --backgraund-color: var(--color-white);
     --color-main-text: var(--color-dark);
+    --theme: "light";
   }
 }
 

@@ -10,6 +10,9 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
   const { mounth, days, hours, min } = getRelativeDate(
     new Date(commit.date_created)
   );
+
+  const { time: timeTranslate, other: otherTranslate } =
+    localeTranslate[locale];
   const { issue } = commit;
   return (
     <article className={style.root}>
@@ -29,16 +32,14 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
       <div className={style.root__group}>
         <label htmlFor={`${commit.id}-date`}>
           {" "}
-          {localeTranslate[locale].other.a_comment_has_been_left}:
+          {otherTranslate.a_comment_has_been_left}:
         </label>
         <span>
-          {`${
-            mounth ? localeTranslate[locale].time[`_${mounth}_months_ago`] : ""
-          } ${days ? localeTranslate[locale].time[`_${days}_days_ago`] : ""} ${
-            localeTranslate[locale].time[`_${hours}_hours_ago`]
-          } ${localeTranslate[locale].time[`_${min}_minutes_ago`]} ${
-            localeTranslate[locale].time.ago
-          }
+          {`${mounth ? timeTranslate[`_${mounth}_months_ago`] : ""} ${
+            days ? timeTranslate[`_${days}_days_ago`] : ""
+          } ${timeTranslate[`_${hours}_hours_ago`]} ${
+            timeTranslate[`_${min}_minutes_ago`]
+          } ${timeTranslate.ago}
   `}
         </span>
       </div>

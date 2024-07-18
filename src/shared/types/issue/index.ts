@@ -1,1 +1,6 @@
-export type { IIssue } from "./types";
+export type {
+  IIssue,
+  ICalcOfdataForClosedTasksArgs,
+  IIssueWithNumberWeek,
+  ICountOfStatuses,
+} from "./types";

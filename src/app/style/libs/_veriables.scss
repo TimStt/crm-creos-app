@@ -9,10 +9,17 @@
 
   --color-dark: #1f1f1f;
   --color-white: #f1f0f0;
+  --color-white-opacity6: #ffffff0f;
+  --color-white-opacity40: #ffffff66;
+  --color-white-opacity60: #ffffff99;
+  --color-white-opacity90: #ffffffcc;
   --backgraund-color: var(--color-dark);
   --color-main-text: var(--color-white);
   --color-accent: #f9ec0e;
+  --color: #09bdab;
   --duration: 0.3s;
+  --color-blue-dark: #21252b;
+  --theme: "dark";
 
   --font-family-base: "Raleway", sans-serif;
 }

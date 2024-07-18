@@ -1,0 +1,1 @@
+export { useGetDesigners } from "./hook";

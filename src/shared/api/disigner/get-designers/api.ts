@@ -1,22 +1,21 @@
 import { IQueryParams } from "@/shared/types/api";
 
-import { IDesigner } from "@/shared/types/disigner";
+import { IDesignersResponse } from "@/shared/types/disigner/types";
 import axios from "axios";
 
 export const getDesigners = async (
   queryParam: IQueryParams
-): Promise<IDesigner[]> => {
+): Promise<IDesignersResponse> => {
   try {
     const queryParamFilters = new URLSearchParams({
       ...queryParam,
     }).toString();
 
-    const { data } = await axios.get<{ results: IDesigner[] }>(
+    const { data } = await axios.get<IDesignersResponse>(
       `api/v1/designer/?${!!queryParam ? queryParamFilters : ""}`
     );
-    return data.results;
+    return data;
   } catch (error) {
     console.log((error as Error).message);
-    return [];
   }
 };

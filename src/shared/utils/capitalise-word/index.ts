@@ -1,0 +1,1 @@
+export { capitaliseWord } from "./util";

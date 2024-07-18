@@ -1,0 +1,37 @@
+@import "../../../../shared/other-style/mixins";
+.root {
+  background-color: var(--color-white);
+  border-radius: var(--navBorderRadius);
+  padding: var(--navPadding);
+
+  @include flex-center;
+  flex-direction: column;
+  position: fixed;
+  z-index: 10;
+  top: 5%;
+  gap: 10px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2), 0 0 31px 0 rgba(0, 0, 0, 0.1);
+
+  &__list {
+    @include flex-gap(20px);
+
+    &__item {
+      color: var(--color-dark);
+      transition-property: background-color;
+      transition-duration: var(--duration);
+      padding: 5px 10px;
+      border-radius: 10px;
+      &:hover,
+      &.isActive {
+        background-color: var(--color-accent);
+      }
+    }
+  }
+
+  span {
+    color: var(--color-dark);
+  }
+}

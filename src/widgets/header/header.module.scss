@@ -6,28 +6,4 @@
   height: var(--height-header);
   padding-block: 10px;
   @include flex-center-beetwen;
-
-  &__nav {
-    background-color: var(--color-white);
-    border-radius: var(--navBorderRadius);
-    padding: var(--navPadding);
-    max-height: 44px;
-    @include flex-center;
-  }
-
-  &__list {
-    @include flex-gap(20px);
-
-    &__item {
-      color: var(--color-dark);
-      transition-property: background-color;
-      transition-duration: var(--duration);
-      padding: 5px 10px;
-      border-radius: 10px;
-      &:hover,
-      &.isActive {
-        background-color: var(--color-accent);
-      }
-    }
-  }
 }

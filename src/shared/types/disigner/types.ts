@@ -34,4 +34,9 @@ export interface IUseGetTopDesignerParams {
   medianUnit?: TUnitData;
 }
 
+export interface IDesignersResponse {
+  count: number;
+  results: IDesigner[];
+}
+
 export type TUnitData = "hours" | "days" | "min" | "mounth";

@@ -1,0 +1,1 @@
+export { getNumberWeekWork } from "./util";

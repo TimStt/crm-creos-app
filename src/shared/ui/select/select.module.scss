@@ -1,0 +1,123 @@
+@import "../../other-style/mixins";
+
+.root {
+  position: relative;
+  --colorFillCheck: var(--color-main-text);
+  --colorTextPlaceholder: var(--color-main-text);
+  --colorFillArrow: var(--color-main-text);
+
+  &__button {
+    @include flex-center-beetwen;
+    padding: 4px 15px 4px 20px;
+    height: 48px;
+    width: 100%;
+    border-radius: 16px;
+    border: 2px solid var(--color-main-text);
+
+    text-align: start;
+    cursor: pointer;
+
+    &__text {
+      @include flex-column;
+    }
+  }
+
+  &__placholder {
+    font-size: 16px;
+    color: var(--colorTextPlaceholder);
+
+    transition-property: color, transform, font-size;
+    transition-duration: var(--duration);
+
+    &.isNotEmpty {
+      font-size: 12px;
+      top: 4px;
+    }
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+
+    fill: var(--colorFillArrow);
+
+    transition-property: transform;
+    transition-duration: var(--duration);
+
+    &.isRotate {
+      transform: rotate(-180deg);
+    }
+  }
+  &__list {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    width: 100%;
+    width: 100%;
+    padding: 8px 0;
+    // background: var(--color-blue-dark);
+    box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.2), 0 0 32px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    border: 2px solid var(--color-main-text);
+    z-index: 999;
+    list-style: none;
+    margin: 0;
+    overflow: hidden;
+    transform-origin: top;
+    transform: scale(0);
+    transition-property: transform;
+    transition-duration: var(--duration);
+
+    &.isOpen {
+      transform: scaleY(1);
+    }
+  }
+
+  &__selected {
+    color: var(--color-main-text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+  }
+
+  &__checkbox {
+    appearance: none;
+    opacity: 0;
+    display: none;
+  }
+
+  &__option {
+    transition-property: background-color;
+    transition-duration: var(--duration);
+    &:hover,
+    &.isActive {
+      background-color: var(--color-white-opacity40);
+    }
+
+    &.isActive {
+      svg {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    padding: 8px 20px;
+    @include flex-gap(8px);
+    align-items: center;
+    pointer-events: painted;
+    cursor: pointer;
+  }
+
+  &__check {
+    width: 16px;
+    height: 16px;
+    fill: var(--colorFillCheck);
+    transition-property: opacity;
+    transition-duration: var(--duration);
+
+    opacity: 0;
+  }
+}

@@ -1,3 +1,5 @@
+import { ChartData } from "chart.js";
+
 export interface IIssue {
   id: string;
   status: TStatusIssues;
@@ -15,4 +17,46 @@ export interface IIssue {
   date_finished: string;
 }
 
-export type TStatusIssues = "Done" | "In Progress";
+export interface IIssueWithNumberWeek extends IIssue {
+  numberWeek: number;
+}
+
+export type ICalculatedFieldsByIssue =
+  | (keyof IIssue & "received_from_client")
+  | (keyof IIssue & "send_to_project_manager");
+
+export type TStatusIssues = "Done" | "In Progress" | "New";
+
+export interface ICalcOfdataForClosedTasksArgs {
+  weeksAgo?: number;
+  issues: IIssue[];
+  statisticsAllStatuses?: boolean;
+}
+
+export type IUseTriggerGetDataIssueArgs = Omit<
+  ICalcOfdataForClosedTasksArgs,
+  "issues"
+>;
+
+export interface ICountOfStatuses {
+  new: number;
+  done: number;
+  in_progress: number;
+}
+
+export interface IFieldsByFinancesTasks {
+  finances: IFinaces;
+
+  allTasksForPeriod: IIssueWithNumberWeek[];
+  totalCountTasks: number;
+  periodWeeksNumber: number[];
+}
+
+export interface IFinaces {
+  profit: number[];
+  expenditure: number[];
+  variance: number[];
+}
+
+export type TDataChartFinancesTasks = ChartData<"bar">;
+export type TDataListFinancesTasks = TDataChartFinancesTasks[];

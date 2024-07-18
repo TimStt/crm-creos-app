@@ -1,0 +1,19 @@
+.root {
+  margin-bottom: 100px;
+
+  &__title {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  &__spinner {
+    min-height: 300px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: center;
+  }
+}

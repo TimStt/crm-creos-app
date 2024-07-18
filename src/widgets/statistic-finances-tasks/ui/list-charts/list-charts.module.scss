@@ -1,0 +1,13 @@
+@import "../../../../shared/other-style/mixins";
+
+.root {
+  @include flex-column;
+  gap: 40px;
+  grid-column: span 2;
+
+  &__item {
+    margin-block: 28px;
+    box-shadow: 0 44px 32px 0 rgba(0, 0, 0, 0.2), 0 0 32px 0 rgba(0, 0, 0, 0.1);
+    padding-block: 15px 40px;
+  }
+}
