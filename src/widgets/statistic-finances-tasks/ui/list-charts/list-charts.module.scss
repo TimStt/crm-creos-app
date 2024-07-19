@@ -5,9 +5,38 @@
   gap: 40px;
   grid-column: span 2;
 
+  @media (max-width: 570px) {
+    grid-column: span 1;
+  }
+
   &__item {
     margin-block: 28px;
     box-shadow: 0 44px 32px 0 rgba(0, 0, 0, 0.2), 0 0 32px 0 rgba(0, 0, 0, 0.1);
     padding-block: 15px 40px;
+
+    @media (max-width: 800px) {
+      overflow-x: auto;
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        /* плашка-бегунок */
+        width: 10px;
+        height: 10px;
+        border-radius: 10px;
+        transition-property: background;
+        transition-duration: var(--duration);
+        background-color: var(--color-accent);
+        &:hover {
+          background: var(--color-gray);
+        }
+      }
+      &::-webkit-scrollbar-track {
+        /* фон */
+        background-color: transparent; /* фон */
+      }
+    }
   }
 }

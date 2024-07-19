@@ -52,7 +52,7 @@ const Header = () => {
           viewBox="0 0 24 24"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             d="M22 5.25H2v1.5h20v-1.5Zm-20 6h20v1.5H2v-1.5Zm0 6h20v1.5H2v-1.5Z"
           />
         </svg>

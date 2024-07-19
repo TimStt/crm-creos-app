@@ -4,8 +4,8 @@ $desktop: 1550px;
 $tablet-above: 1101px;
 $tablet: 1100px;
 
-$mobile-above: 481px;
-$mobile: 480px;
+$mobile-above: 551px;
+$mobile: 550px;
 
 @mixin desktop-above {
   @media (min-width: $desktop-above) {

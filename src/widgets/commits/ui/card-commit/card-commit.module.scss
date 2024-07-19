@@ -10,6 +10,14 @@
   border: 2px solid var(--color-accent);
   padding: 10px 20px;
 
+  @include mobile {
+    width: 400px;
+  }
+
+  @media (max-width: 400px) {
+    width: 300px;
+  }
+
   &__avatar {
     max-width: 85px;
     width: 100%;
@@ -20,6 +28,9 @@
   &__group {
     @include flex-gap(5px);
 
+    @include mobile {
+      flex-direction: column;
+    }
     label {
       flex: 1;
       font-weight: 800;
@@ -57,84 +68,4 @@
       background-color: transparent; /* фон */
     }
   }
-  //   &__accordion {
-  //     $this: &;
-
-  //     --border: 1px solid var(--color-blue-dark-1);
-
-  //     width: 100%;
-
-  //     &__summary {
-  //       width: 100%;
-  //       @include flex-center-beetwen;
-  //       padding-block: 12px;
-  //       border-top: var(--border);
-  //       cursor: pointer;
-
-  //       .root[open] > & {
-  //         svg {
-  //           transform: rotate(44deg);
-  //         }
-  //       }
-  //       &::marker {
-  //         content: "";
-  //       }
-
-  //       span {
-  //         font-size: 16px;
-  //         font-weight: 400;
-  //       }
-
-  //       svg {
-  //         @media (prefers-reduced-motion: no-preference) {
-  //           transition: var(--duration);
-  //           transition-property: transform;
-  //         }
-  //         transition-duration: var(--duration);
-  //         transition-property: transform, fill;
-  //         width: 18px;
-  //         height: 18px;
-  //         fill: var(--color-gray-light);
-
-  //         &:hover {
-  //           fill: var(--color-violet);
-  //         }
-  //       }
-  //     }
-
-  //     &__content {
-  //       display: grid;
-  //       --duration: 0.8s;
-  //       transition-property: grid-template-rows, padding-bottom;
-  //       grid-template-rows: 0fr;
-  //       transition: var(--duration);
-
-  //       p {
-  //         font-size: 16px;
-  //         font-weight: 400;
-  //         color: var(--color-gray-6);
-  //       }
-
-  //       #{$this}[open] + & {
-  //         grid-template-rows: 1fr;
-  //         padding-bottom: 12px;
-  //         border-bottom: 1px solid var(--color-blue-dark-1);
-  //       }
-  //     }
-  //     &__characteristics {
-  //       span {
-  //         font-size: 16px;
-  //         font-weight: 400;
-  //         color: var(--color-gray-6);
-  //       }
-  //     }
-  //     &__wrapper {
-  //       overflow: hidden;
-
-  //       &.list {
-  //         @include flex-gap(12px);
-  //         flex-direction: column;
-  //       }
-  //     }
-  //   }
 }

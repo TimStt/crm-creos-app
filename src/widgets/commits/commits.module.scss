@@ -1,4 +1,4 @@
-@import "../../shared/other-style/mixins";
+@import "../../shared/other-style/mixins", "../../shared/other-style/adaptive";
 
 .root {
   margin-block: 100px 72px;
@@ -10,7 +10,7 @@
 
   &__title {
     font-size: 36px;
-    margin-bottom: 36px;
+    margin-bottom: 48px;
   }
   &__list {
     @include flex-gap(60px);
@@ -19,6 +19,10 @@
 
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+
+    @include mobile {
+      gap: 25px;
+    }
 
     li {
       scroll-snap-align: start;

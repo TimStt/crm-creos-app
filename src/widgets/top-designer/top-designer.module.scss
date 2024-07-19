@@ -7,6 +7,7 @@
     rgba(255, 0, 0, 0) 100%
   );
   --sizeMarkerList: 300px;
+  --sizeFontMarker: 150px;
   --colorTextMarker: var(--backgraund-color);
 
   --colorBgMarkerFirst: linear-gradient(
@@ -27,6 +28,11 @@
     rgba(255, 0, 0, 0) 100%
   );
 
+  @include mobile {
+    --sizeMarkerList: 180px;
+    --sizeFontMarker: 100px;
+  }
+
   &__spinner {
     position: relative;
     min-height: 300px;
@@ -38,6 +44,10 @@
     @include flex-gap(50px);
     flex-direction: column;
     width: 100%;
+
+    @include mobile {
+      gap: 96px;
+    }
 
     &__item {
       counter-increment: new 1;
@@ -54,6 +64,10 @@
 
       &:nth-child(3) > .root__list__title::before {
         background: var(--colorBgMarkerThree);
+      }
+
+      &:nth-child(10n + 0) > .root__list__title::before {
+        margin-right: calc(var(--sizeMarkerList) / 2.8 * -1);
       }
 
       &:nth-child(2n-1) {
@@ -77,7 +91,7 @@
         border-radius: 50%;
         box-shadow: 0 9px 34px 0 rgba(0, 0, 0, 0.2),
           0 0 32px 0 rgba(0, 0, 0, 0.1);
-        font-size: 150px;
+        font-size: var(--sizeFontMarker);
 
         font-weight: 700;
         color: var(--colorTextMarker);
@@ -171,5 +185,9 @@
       @include flex-gap(12px);
       flex-direction: column;
     }
+  }
+
+  &__title {
+    margin-bottom: 48px;
   }
 }

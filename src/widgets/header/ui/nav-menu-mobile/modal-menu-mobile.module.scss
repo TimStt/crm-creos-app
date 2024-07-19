@@ -13,7 +13,7 @@
   border-radius: 10px;
 
   &__title {
-    font-size: 24px;
+    @include fluid-text(36, 27);
     font-weight: 700;
     color: var(--color-main-text);
   }
@@ -63,7 +63,9 @@
   }
 
   &__header {
-    @include flex-center-beetwen;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
     padding-block: 24px;
     margin-bottom: 36px;
   }

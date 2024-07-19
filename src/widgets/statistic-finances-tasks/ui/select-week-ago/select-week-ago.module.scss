@@ -4,4 +4,8 @@
   margin-left: auto;
   position: sticky;
   top: 0;
+
+  @media (max-width: 570px) {
+    margin: 36px auto;
+  }
 }

@@ -23,7 +23,6 @@ export const dataFinancesTasks = (
       datasets: [
         {
           categoryPercentage: 0.3,
-          barThickness: 60,
 
           label: otherTranslate[key],
           data: value,
