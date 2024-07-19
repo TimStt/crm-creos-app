@@ -18,6 +18,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Используем localStorage для web
 import { issueSlice } from "@/shared/stores/issue";
+import { menuMobileSlice } from "@/shared/stores/menu-mobile";
 // Импортируйте ваши редукторы здесь
 // import userReducer from './userSlice';
 
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   lastCommitsWithUssue: lastCommitsSlice.reducer,
   topDesigner: designerSlice.reducer,
   issue: issueSlice.reducer,
+  menuMobile: menuMobileSlice.reducer,
 });
 
 // Конфигурация для redux-persist

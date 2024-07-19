@@ -5,6 +5,7 @@ import {
 
 import style from "./swithed-locale.module.scss";
 import cls from "classnames";
+import { localeTranslate } from "@/shared/config/locale-translate";
 
 const SwithedLocale = ({
   classname,
@@ -13,6 +14,10 @@ const SwithedLocale = ({
 }: ISwithedLocaleTranslateUIProps) => {
   const checkActive = (localeChoose: TLocaleTranslate) =>
     locale === localeChoose;
+
+  const { other } = localeTranslate[locale];
+  const helpTitle = (locale: TLocaleTranslate) =>
+    other[`change_site_language_to_${locale}`];
   return (
     <div className={cls(style.root, classname)}>
       <button
@@ -25,8 +30,10 @@ const SwithedLocale = ({
         )}
         disabled={checkActive("Ru")}
         onClick={() => setLocale("Ru")}
+        title={helpTitle("Ru")}
       >
-        Ru
+        <span>Ru</span>
+        <span className="visually-hidden"> {helpTitle("Ru")}</span>
       </button>
 
       <button
@@ -39,8 +46,10 @@ const SwithedLocale = ({
         )}
         disabled={checkActive("En")}
         onClick={() => setLocale("En")}
+        title={helpTitle("En")}
       >
-        En
+        <span>En</span>
+        <span className="visually-hidden"> {helpTitle("En")}</span>
       </button>
     </div>
   );

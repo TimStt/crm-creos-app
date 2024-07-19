@@ -1,29 +1,42 @@
 import { useEffect, useState } from "react";
 
-import { getDesigners } from "@/shared/api/disigner/get-designers";
-import { IQueryParams } from "@/shared/types/api";
-import { IDesignersResponse } from "@/shared/types/disigner/types";
+import { IDesignersResponseWithCountungTasks } from "@/shared/types/disigner/types";
 
-export const useGetDesigners = (queryParams: IQueryParams) => {
+import { countingTasksByDesigner } from "../../utils/designer-with-counting";
+import { usePathname } from "@/shared/hooks/use-pathname";
+import { getDesigners } from "@/shared/api/disigner/get-designers";
+
+export const useGetDesigners = () => {
   const [spinner, setSpinner] = useState(false);
 
+  const { query } = usePathname();
+
   const [designersResponse, setDesignersResponse] =
-    useState<IDesignersResponse>();
+    useState<IDesignersResponseWithCountungTasks>();
 
   useEffect(() => {
+    const queryParams = Object.fromEntries(query.entries());
     const fetchData = async () => {
       try {
         setSpinner(true);
         const data = await getDesigners(queryParams);
-        setDesignersResponse(data);
+        const designerWithCounting = countingTasksByDesigner(data.results);
+        const newData = {
+          ...data,
+          results: designerWithCounting,
+        };
+
+        setDesignersResponse(newData);
+        console.log("123");
       } catch (error) {
         console.log((error as Error).message);
       } finally {
         setSpinner(false);
       }
     };
+
     fetchData();
-  }, [queryParams]);
+  }, [query]);
 
   return { designersResponse, spinner };
 };

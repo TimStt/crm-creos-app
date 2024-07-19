@@ -1,1 +1,1 @@
-export { useSetDefoultQuery } from "./hook";
+// export { useSetDefoultQuery } from "./hook";

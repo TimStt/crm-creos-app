@@ -1,0 +1,7 @@
+@import "../../../../shared/other-style/mixins",
+  "../../../../shared/other-style/adaptive";
+.root {
+  @include tablet {
+    display: none !important;
+  }
+}

@@ -1,0 +1,11 @@
+@import "../../../../../../shared/other-style/mixins",
+  "../../../../../../shared/other-style/adaptive";
+
+.root {
+  --widthDoted: 58px;
+  --heightDoted: 48px;
+  color: var(--color-main-text);
+  @include inline-flex-center;
+  width: var(--widthDoted);
+  height: var(--heightDoted);
+}

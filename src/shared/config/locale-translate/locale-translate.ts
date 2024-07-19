@@ -8,8 +8,8 @@ export const localeTranslate = {
       task: "Задача",
       tasks: "Задачи",
       open_task_description: "Открыть описание задачи",
-      design: "Дизайнер",
-      designs: "Дизайнеры",
+      designer: "Дизайнер",
+      designers: "Дизайнеры",
       a_comment_has_been_left: "Комментарий был оставлен",
       designer_name: "Имя дизайнера",
       done: "Выполнено",
@@ -22,6 +22,26 @@ export const localeTranslate = {
       profit: "Доход",
       expenditure: "Расход",
       variance: "Прибыль",
+      next_page: "Следующая страница",
+      previous_page: "Предыдущая страница",
+      menu: "Меню",
+      open_mobile_menu: "Открыть мобильное меню",
+      close_mobile_menu: "Закрыть мобильное меню",
+      change_site_language_to_Ru: "Сменить язык сайта на русский",
+      change_site_language_to_En: "Сменить язык сайта на английский",
+      learn_more: "Узнать больше",
+      open_detailed_characteristics: "Открыть подробную информацию",
+      sorting_by_post_in_alphabetical_order:
+        "Сортировка по почте (в алфавитном порядке)",
+      sorting_by_name_in_alphabetical_order:
+        "Сортировка по имени (в алфавитном порядке)",
+      sorting_by_post_in_alphabetical_order_decreasing:
+        "Сортировка по почте (в алфавитном порядке по убыванию)",
+      sorting_by_name_in_alphabetical_order_decreasing:
+        "Сортировка по имени (в алфавитном порядке по убыванию)",
+      sort_by: "Сортировать по",
+      filter_by_status: "Фильтровать по статусу",
+      clean_query: "Сбросить фильтры",
     },
     titles: {
       recent_comments_on_the_tasks: "Последние комментарии к задачам",
@@ -29,9 +49,18 @@ export const localeTranslate = {
       statistics_all_statuses_tasks: "Статистика по статусам задач",
       statistics_finances_tasks: "Статистика по финансам задач",
       choose_period: "Выберите период времени",
+      photograph: "Фотография",
+      name: "Имя",
+      mail: "Почта",
+      tasks_count_in_progress: "Количество выполненных задач",
+      tasks_count_done: "Количество задач в процессе",
+      table_designers: "Таблица дизайнеров",
+
+      statistics: "Статистика",
     },
 
     time: {
+      unit: "Единица измерения",
       current_working_week: "Текущая рабочая неделя",
       week: "Неделя",
       weeks: "Недели",
@@ -197,8 +226,8 @@ export const localeTranslate = {
       task: "Task",
       tasks: "Tasks",
       open_task_description: "Open task description",
-      design: "Designer",
-      designs: "Designers",
+      designer: "Designer",
+      designers: "Designers",
       a_comment_has_been_left: "A comment has been left",
       designer_name: "Designer's name",
       comment: "Comment",
@@ -209,6 +238,29 @@ export const localeTranslate = {
       profit: "Profit",
       expenditure: "Expenditure",
       variance: "Variance",
+      next_page: "Next page",
+      previous_page: "Previous page",
+      menu: "Menu",
+      open_mobile_menu: "Open mobile menu",
+      close_mobile_menu: "Close mobile menu",
+      learn_more: "Learn more",
+      open_detailed_characteristics: "Open detailed characteristics",
+
+      sort_by: "Sort by",
+      filter_by_status: "Filter by status",
+      sorting_by_post_in_alphabetical_order:
+        "Sorting by post in alphabetical order",
+      sorting_by_name_in_alphabetical_order:
+        "Sorting by name in alphabetical order",
+      sorting_by_post_in_alphabetical_order_decreasing:
+        "Sorting by post in alphabetical order decreasing",
+      sorting_by_name_in_alphabetical_order_decreasing:
+        "Sorting by name in alphabetical order decreasing",
+
+      change_site_language_to_Ru: "Change site language to Russian",
+      change_site_language_to_En: "Change site language to English",
+
+      clean_query: "Clean query",
     },
     titles: {
       recent_comments_on_the_tasks: "Recent comments on the tasks",
@@ -216,9 +268,18 @@ export const localeTranslate = {
       statistics_all_statuses_tasks: "Statistics by status tasks",
       statistics_finances_tasks: "Statistics by finances tasks",
       choose_period: "Choose period",
+      photograph: "Photograph",
+      name: "Name",
+      mail: "Mail",
+      tasks_count_in_progress: "Tasks count in progress",
+      tasks_count_done: "Tasks count done",
+      table_designers: "Table designers",
+
+      statistics: "Statistics",
     },
 
     time: {
+      unit: "Unit of measurement",
       current_working_week: "Current working week",
       weeks: "Weeks",
       week: "Week",

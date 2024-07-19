@@ -2,49 +2,15 @@
   "../../../../shared/other-style/adaptive";
 
 .root {
+  --bgActive: var(--color-main-text);
+  --colorActive: var(--backgraund-color);
+  --hoverColor: var(--color-accent);
+
   @include flex-gap(12px);
   align-items: center;
   --widthItem: 58px;
   --heightItem: 48px;
   justify-content: center;
-
-  &__itemText {
-    &__leftIcon {
-      transform: rotate(180deg);
-    }
-    &__button {
-      cursor: pointer;
-      @include flex-gap(10px);
-      align-items: center;
-      --duration: 0.2s;
-
-      svg {
-        fill: var(--color-gray-light);
-        width: 13px;
-        height: 13px;
-      }
-      svg,
-      span {
-        transition-duration: var(--duration);
-        transition-property: fill, color;
-      }
-
-      span {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 24px;
-      }
-
-      &:hover {
-        svg {
-          fill: var(--color-light-violet);
-        }
-        span {
-          color: var(--color-light-violet);
-        }
-      }
-    }
-  }
 
   &__item {
     border-radius: 4px;
@@ -55,27 +21,18 @@
     border-radius: 32px;
 
     transition-duration: var(--duration);
-    transition-property: background-color color;
-    &__doted {
-      color: var(--color-white-1);
-      @include inline-flex-center;
-      width: var(--widthItem);
-      height: var(--heightItem);
-    }
+    transition-property: background-color, color;
 
     &:hover {
-      background-color: var(--color-black-2);
-      &__doted {
-        color: var(--color-white);
-      }
+      background-color: var(--color-white-opacity40);
+    }
+
+    &.isActive > a {
+      color: var(--colorActive);
     }
 
     &.isActive {
-      &__doted {
-        color: var(--color-white);
-      }
-      background-color: var(--color-light-violet);
-      color: var(--color-white);
+      background-color: var(--bgActive);
     }
     &.isDisabled {
       display: none;

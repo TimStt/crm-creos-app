@@ -1,0 +1,73 @@
+@import "../../../../shared/other-style/mixins",
+  "../../../../shared/other-style/adaptive";
+
+.root {
+  border-spacing: 0;
+  padding-bottom: 20px;
+  width: 100%;
+
+  &__wrapper {
+    width: 100%;
+    margin-block: 36px 72px;
+
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      /* плашка-бегунок */
+      width: 10px;
+      height: 10px;
+      border-radius: 10px;
+      transition-property: background;
+      transition-duration: var(--duration);
+      background-color: var(--color-accent);
+      &:hover {
+        background: var(--color-gray);
+      }
+    }
+    &::-webkit-scrollbar-track {
+      /* фон */
+      background-color: transparent; /* фон */
+    }
+  }
+
+  &__head {
+    @include fluid-text(20, 17);
+    font-weight: 700;
+    background-color: var(--color-white-opacity6);
+
+    th {
+      @include fluid-text(24, 16, padding);
+    }
+  }
+  &__body {
+    font-size: 16px;
+    font-weight: 400;
+
+    &__img {
+      max-width: 50px;
+      border-radius: 50%;
+      margin: auto;
+    }
+
+    &__row {
+      transition-duration: var(--duration);
+      transition-property: background-color;
+
+      td {
+        text-align: center;
+        padding: 20px;
+
+        @include fluid-text(20, 17, padding);
+      }
+
+      &:hover {
+        background-color: var(--color-white-opacity40);
+      }
+    }
+  }
+}

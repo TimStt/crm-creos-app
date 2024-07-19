@@ -1,1 +1,1 @@
-export { Pagination as default } from "./ui";
+export { default as Pagination } from "./ui";

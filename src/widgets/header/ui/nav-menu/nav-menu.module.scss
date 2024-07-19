@@ -1,12 +1,21 @@
-@import "../../../../shared/other-style/mixins";
+@import "../../../../shared/other-style/mixins",
+  "../../../../shared/other-style/adaptive";
 .root {
-  background-color: var(--color-white);
+  --navBackgroundColor: var(--color-main-text);
+  --navBorderRadius: 20px;
+  --navPadding: 10px;
+  --bgActive: var(--color-accent);
+  --bgBase: var(--color-white);
+  --colorTextActive: var(--color-dark);
+  --colorText: var(--color-dark);
+  background-color: var(--bgBase);
   border-radius: var(--navBorderRadius);
   padding: var(--navPadding);
 
   @include flex-center;
   flex-direction: column;
   position: fixed;
+  gap: 15px;
   z-index: 10;
   top: 5%;
   gap: 10px;
@@ -17,21 +26,27 @@
 
   &__list {
     @include flex-gap(20px);
+    align-items: center;
 
     &__item {
-      color: var(--color-dark);
+      color: var(--colorText);
       transition-property: background-color;
       transition-duration: var(--duration);
       padding: 5px 10px;
       border-radius: 10px;
       &:hover,
       &.isActive {
-        background-color: var(--color-accent);
+        background-color: var(--bgActive);
+        color: var(--colorTextActive);
       }
+    }
+
+    @include tablet {
+      flex-direction: column;
     }
   }
 
   span {
-    color: var(--color-dark);
+    color: var(--colorText);
   }
 }

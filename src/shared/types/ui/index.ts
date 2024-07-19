@@ -1,1 +1,8 @@
-export type { ISelectUI } from "./types";
+export type {
+  ISelectUI,
+  IPaginationUI,
+  ITableUI,
+  IPaginationButtonPageUI,
+  IDotedPageUI,
+  IModelUI,
+} from "./types";

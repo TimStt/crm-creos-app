@@ -1,0 +1,17 @@
+.root {
+  --boxShadowModal: 0 32px 32px 0 rgba(0, 0, 0, 0.2),
+    0 0 32px 0 rgba(0, 0, 0, 0.1);
+
+  transition-property: top, left, transform;
+  transition-duration: var(--duration);
+
+  background: var(--background-color);
+  display: block;
+
+  border: none;
+
+  &::backdrop {
+    opacity: 0.9;
+    background-color: rgb(9, 9, 22);
+  }
+}

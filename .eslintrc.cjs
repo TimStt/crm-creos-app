@@ -18,5 +18,6 @@ module.exports = {
     "no-var": "off",
     "no-extra-boolean-cast": "off",
     "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };

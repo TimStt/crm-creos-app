@@ -6,6 +6,8 @@
   --colorTextPlaceholder: var(--color-main-text);
   --colorFillArrow: var(--color-main-text);
 
+  --bgColorDropDown: transparent;
+
   &__button {
     @include flex-center-beetwen;
     padding: 4px 15px 4px 20px;
@@ -19,6 +21,7 @@
 
     &__text {
       @include flex-column;
+      overflow: hidden;
     }
   }
 
@@ -55,7 +58,7 @@
     width: 100%;
     width: 100%;
     padding: 8px 0;
-    // background: var(--color-blue-dark);
+    background-color: var(--bgColorDropDown);
     box-shadow: 0 32px 32px 0 rgba(0, 0, 0, 0.2), 0 0 32px 0 rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     border: 2px solid var(--color-main-text);
@@ -78,7 +81,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 210px;
+    max-width: 100%;
   }
 
   &__checkbox {

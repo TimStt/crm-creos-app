@@ -1,7 +1,14 @@
-import React from "react";
+import { useScrollIntoView } from "@/shared/hooks/use-scroll-into-view";
+import { TableDesigners } from "@/widgets/table-designers";
 
 const Designers = () => {
-  return <></>;
+  useScrollIntoView();
+  return (
+    <>
+      {" "}
+      <TableDesigners />
+    </>
+  );
 };
 
 export default Designers;

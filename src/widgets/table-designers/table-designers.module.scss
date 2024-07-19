@@ -1,0 +1,71 @@
+@import "../../shared/other-style/mixins";
+
+.root {
+  margin-block: 96px 72px;
+
+  --bgCleanButton: rgb(233, 75, 75);
+  --colorCleanButton: var(--color-white);
+  --hoverBgCleanButton: var(--color-white-opacity40);
+  &__title {
+    margin-bottom: 72px;
+
+    font-weight: 700;
+  }
+
+  &__spinner {
+    position: relative;
+    height: 100vh;
+  }
+
+  &__selects {
+    @include flex-gap(16px);
+    flex-direction: column;
+    margin-bottom: 72px;
+
+    &__block {
+      @include flex-center-beetwen;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__select {
+    max-width: 300px;
+    width: 100%;
+    --bgColorDropDown: var(--backgraund-color);
+  }
+
+  &__btnCleanQuery {
+    @include flex-gap(10px);
+    align-items: center;
+    cursor: pointer;
+    background-color: var(--bgCleanButton);
+    border-radius: 20px;
+    padding: 10px 20px;
+    max-width: 250px;
+    font-size: 16px;
+    background-color: var(--bgCleanButton);
+    color: var(--colorCleanButton);
+    margin-left: auto;
+    transition-duration: var(--duration);
+    transition-property: background-color;
+
+    &:disabled {
+      opacity: 0.7;
+
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    &:hover {
+      background-color: var(--hoverBgCleanButton);
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--colorCleanButton);
+    }
+  }
+}

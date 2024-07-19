@@ -17,7 +17,7 @@ import { selectorThemeSwitcher } from "@/shared/stores/theme-swither";
 Chart.register(ArcElement, ChartDataLabels, Legend, Tooltip);
 
 const StatisticsAllStatusTasks = () => {
-  const { spinner, dataByTasks } = useTriggerGetDataIssue({
+  const { spinner, griggerApiGetIssues } = useTriggerGetDataIssue({
     statisticsAllStatuses: true,
   });
   const locale = useSelector(selectorLocale);
@@ -29,23 +29,23 @@ const StatisticsAllStatusTasks = () => {
     useState<ChartData<"pie"> | null>(null);
 
   useEffect(() => {
-    if (dataByTasks?.countOfStatuses && dataByTasks?.totalCountTasks) {
-      setDataByTasksByStatus(
-        dataStatisticsStatus(dataByTasks.countOfStatuses, locale)
-      );
-    }
-  }, [
-    dataByTasks,
-    dataByTasks?.countOfStatuses,
-    dataByTasks?.totalCountTasks,
-    locale,
-  ]);
-  console.log(dataByTasks);
+    const getData = async () => {
+      const data = await griggerApiGetIssues();
+      if (data?.countOfStatuses && data?.totalCountTasks) {
+        setDataByTasksByStatus(
+          dataStatisticsStatus(data.countOfStatuses, locale)
+        );
+      }
+    };
+
+    getData();
+  }, [griggerApiGetIssues, locale]);
+
   console.log(dataByTasksByStatus);
 
   return (
-    <section className={cls(style.root, "container")}>
-      <h2 className={style.root__title}>
+    <section className={style.root}>
+      <h2 className={cls(style.root__title, "title-h2-fluid")}>
         {titles.statistics_all_statuses_tasks}
       </h2>
 

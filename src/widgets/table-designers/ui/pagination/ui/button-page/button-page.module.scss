@@ -1,0 +1,48 @@
+@import "../../../../../../shared/other-style/mixins",
+  "../../../../../../shared/other-style/adaptive";
+.root {
+  cursor: pointer;
+  @include flex-gap(10px);
+  align-items: center;
+  --duration: 0.2s;
+  flex-direction: row-reverse;
+
+  &.iconLeft {
+    flex-direction: row;
+
+    & > svg {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__icon {
+    fill: var(--color-main-text);
+    width: 26px;
+    height: 26px;
+    rotate: 270deg;
+
+    transition-duration: var(--duration);
+    transition-property: fill;
+  }
+
+  &:hover {
+    svg {
+      fill: var(--hoverColor);
+    }
+    span {
+      color: var(--hoverColor);
+    }
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 400;
+
+    transition-duration: var(--duration);
+    transition-property: fill;
+
+    @media (max-width: 700px) {
+      display: none;
+    }
+  }
+}

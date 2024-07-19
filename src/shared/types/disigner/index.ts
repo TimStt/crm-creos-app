@@ -4,4 +4,7 @@ export type {
   IThumbnails,
   IDesignerTop,
   IUseGetTopDesignerParams,
+  IDesignersResponse,
+  IDesignersWithCountungTasks,
+  IDesignersResponseWithCountungTasks,
 } from "./types";

@@ -30,9 +30,11 @@ export interface TLocaleTranslateInitialState {
 
 export interface ISwithedLocaleTranslateUIProps {
   locale: TLocaleTranslate;
-  setLocale: (locale: TLocaleTranslate) => void;
+  setLocale: TToggleLocale;
   toggleLocale?: () => void;
   classname?: string;
 }
+
+export type TToggleLocale = (locale: TLocaleTranslate) => void;
 
 export type TLocaleTranslate = "Ru" | "En";

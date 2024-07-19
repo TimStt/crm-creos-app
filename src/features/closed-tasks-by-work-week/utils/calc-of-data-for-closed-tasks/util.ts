@@ -62,10 +62,7 @@ export const calcOfdataForClosedTasks = ({
 
       return res.map(({ value }) => value);
     };
-    console.log(
-      "allTasksForPeriod send_to_project_manager",
-      allTasksForPeriod[0]
-    );
+    console.log("issues 1", statisticsAllStatuses, issues);
 
     const profit = calcValuesByWeeks(allTasksForPeriod, "received_from_client");
     const expenditure = calcValuesByWeeks(

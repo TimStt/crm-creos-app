@@ -18,9 +18,9 @@ const StatisticFinancesTasks = () => {
   const { dataByFinancesTasks, spinner } = useDataFinancesTasks();
 
   return (
-    <section className={cls(style.root, "container")}>
+    <section className={style.root}>
       {" "}
-      <h2 className={style.root__title}>
+      <h2 className={cls(style.root__title, "title-h2-fluid")}>
         {titles.statistics_finances_tasks}
       </h2>{" "}
       {!spinner ? (

@@ -1,9 +1,46 @@
-@import "../../shared/other-style/mixins";
+@import "../../shared/other-style/mixins", "../../shared/other-style/adaptive";
 .root {
-  --navBackgroundColor: var(--color-white);
-  --navBorderRadius: 20px;
-  --navPadding: 10px;
+  --btnMobileBackgroundColor: var(--color-main-text);
+  --btnMobileBorderRadius: 20px;
+  --btnMobilePadding: 10px;
+  --btnMobileIconColor: var(--backgraund-color);
   height: var(--height-header);
   padding-block: 10px;
   @include flex-center-beetwen;
+
+  &__swithedLocale {
+    @include tablet {
+      display: none !important;
+    }
+  }
+
+  &__btnMobile {
+    @include flex-gap(14px);
+    display: none;
+    background-color: var(--btnMobileBackgroundColor);
+    border-radius: var(--btnMobileBorderRadius);
+    padding: var(--btnMobilePadding);
+    border: 1px solid var(--color-gray-light);
+    align-items: center;
+    cursor: pointer;
+
+    span {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: var(--btnMobileIconColor);
+    }
+
+    &:hover {
+      background-color: var(--color-accent);
+      border: 1px solid var(--color-gray-light);
+    }
+    @include tablet {
+      display: flex;
+    }
+  }
 }

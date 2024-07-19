@@ -11,25 +11,26 @@ export const useDataFinancesTasks = () => {
   const { query } = usePathname();
 
   const weeksAgoQuery = query.get("weeksAgo");
-  const { spinner, dataByTasks } = useTriggerGetDataIssue({
+  const { spinner, griggerApiGetIssues } = useTriggerGetDataIssue({
     weeksAgo: +weeksAgoQuery,
   });
+
   const locale = useSelector(selectorLocale);
   const [dataByFinancesTasks, setDataByFinancesTasks] =
     useState<TDataListFinancesTasks | null>(null);
 
   useEffect(() => {
-    if (!!dataByTasks?.financesTasksData) {
-      setDataByFinancesTasks(
-        dataFinancesTasks(dataByTasks.financesTasksData, locale)
-      );
-    }
-  }, [
-    dataByTasks,
-    dataByTasks?.countOfStatuses,
-    dataByTasks?.totalCountTasks,
-    locale,
-  ]);
+    const getData = async () => {
+      const data = await griggerApiGetIssues();
+      if (!!data?.financesTasksData?.finances) {
+        setDataByFinancesTasks(
+          dataFinancesTasks(data.financesTasksData, locale)
+        );
+      }
+    };
+
+    getData();
+  }, [dataByFinancesTasks?.length, griggerApiGetIssues, locale, weeksAgoQuery]);
 
   return {
     dataByFinancesTasks,

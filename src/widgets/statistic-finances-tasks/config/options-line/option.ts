@@ -8,21 +8,8 @@ export const optionsLine = (
   const colorText = theme === "dark" ? "white" : "black";
   const colorGray = theme === "dark" ? "#2c2c2c" : "#e5e5e5";
   const langTranslate = lang === "Ru" ? "ru-RU" : "en-US";
-  let delayed;
-  return {
-    animation: {
-      onComplete: () => {
-        delayed = true;
-      },
-      delay: (context) => {
-        let delay = 0;
-        if (context.type === "data" && context.mode === "default" && !delayed) {
-          delay = context.dataIndex * 300 + context.datasetIndex * 100;
-        }
-        return delay;
-      },
-    },
 
+  return {
     plugins: {
       legend: {
         display: false,

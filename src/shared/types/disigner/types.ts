@@ -1,4 +1,4 @@
-import { IIssue } from "../issue/types";
+import { ICountOfStatuses, IIssue } from "../issue/types";
 
 export interface IDesigner {
   id: string;
@@ -38,5 +38,16 @@ export interface IDesignersResponse {
   count: number;
   results: IDesigner[];
 }
+
+export interface IDesignersWithCountungTasks extends IDesigner {
+  tasksCount: ICountOfStatuses;
+}
+
+export type IDesignersResponseWithCountungTasks = Omit<
+  IDesignersResponse,
+  "results"
+> & {
+  results: IDesignersWithCountungTasks[];
+};
 
 export type TUnitData = "hours" | "days" | "min" | "mounth";

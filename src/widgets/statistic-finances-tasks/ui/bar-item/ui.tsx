@@ -33,7 +33,9 @@ const BarItem = ({ dataChart }: { dataChart: TDataChartFinancesTasks }) => {
   const lang = useSelector(selectorLocale);
   return (
     <>
-      <h2 className={style.root__title}>{dataChart.datasets[0].label}</h2>
+      <h3 className={cls(style.root__title, "title-h3-fluid")}>
+        {dataChart.datasets[0].label}
+      </h3>
       <Bar
         className={cls(style.root)}
         data={dataChart}
