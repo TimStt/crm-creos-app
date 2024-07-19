@@ -11,9 +11,11 @@ export const optionsLine = (
 
   return {
     plugins: {
+      
       legend: {
         display: false,
       },
+      
       tooltip: {
         enabled: true,
         mode: "index",
@@ -28,6 +30,7 @@ export const optionsLine = (
       },
 
       datalabels: {
+        
         display: true,
         color: "white",
         formatter: (value: number) =>
@@ -40,7 +43,9 @@ export const optionsLine = (
     },
 
     scales: {
+      
       y: {
+        
         grid: {
           display: true,
           color: colorGray,
@@ -59,6 +64,7 @@ export const optionsLine = (
           },
         },
       },
+      
 
       x: {
         grid: {
