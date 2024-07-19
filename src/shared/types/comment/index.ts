@@ -1,1 +1,1 @@
-export type { IComment, ICommentsList, ILastCommitsState } from "./types";
+export type { IComment, ILastCommitsState } from "./types";
