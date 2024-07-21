@@ -2,15 +2,15 @@ import { paths } from "@/shared/config/paths";
 
 export const dataMenuItem = [
   {
-    title: "Home",
+    title: "home",
     path: paths.home,
   },
   {
-    title: "Tasks",
+    title: "tasks",
     path: paths.tasks,
   },
   {
-    title: "Designers",
+    title: "designers",
     path: paths.designers,
   },
 ];

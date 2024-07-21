@@ -10,7 +10,7 @@ import { dataMenuItem } from "./config/data-menu-item";
 const NavMenu = ({ className, locale, onClickItem }: IMenuUI) => {
   const { pathname } = useLocation();
 
-  const { time } = localeTranslate[locale];
+  const { time, other } = localeTranslate[locale];
   return (
     <nav className={cls(style.root, className)}>
       {" "}
@@ -23,7 +23,7 @@ const NavMenu = ({ className, locale, onClickItem }: IMenuUI) => {
             key={index}
             onClick={onClickItem}
           >
-            <Link to={item.path}>{item.title}</Link>
+            <Link to={item.path}>{other[item.title]}</Link>
           </li>
         ))}
       </ul>{" "}
