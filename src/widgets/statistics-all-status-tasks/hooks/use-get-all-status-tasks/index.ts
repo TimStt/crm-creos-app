@@ -1,0 +1,1 @@
+export { useGetAllStatusTasks } from "./hook";

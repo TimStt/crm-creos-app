@@ -1,0 +1,8 @@
+// eslint-disable-next-line no-undef
+{
+  "presets": [
+    "@babel/preset-env",
+
+    ["@babel/preset-react", { "runtime": "automatic" }]
+  ]
+}

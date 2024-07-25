@@ -2,8 +2,6 @@
 
 import { localeTranslateSlice } from "@/shared/stores/locale-translate";
 import { themeSwitcherSlice } from "@/shared/stores/theme-swither";
-import { lastCommitsSlice } from "@/widgets/commits/store";
-import { designerSlice } from "@/shared/stores/disagners";
 
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import {
@@ -17,18 +15,17 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage"; // Используем localStorage для web
-import { issueSlice } from "@/shared/stores/issue";
+import { issuesSlice } from "@/shared/stores/issue";
 import { menuMobileSlice } from "@/shared/stores/menu-mobile";
-// Импортируйте ваши редукторы здесь
+
 // import userReducer from './userSlice';
 
 // Комбинированный редуктор
 const rootReducer = combineReducers({
   themeSwitcher: themeSwitcherSlice.reducer,
   localeTranslate: localeTranslateSlice.reducer,
-  lastCommitsWithUssue: lastCommitsSlice.reducer,
-  topDesigner: designerSlice.reducer,
-  issue: issueSlice.reducer,
+
+  issues: issuesSlice.reducer,
   menuMobile: menuMobileSlice.reducer,
 });
 

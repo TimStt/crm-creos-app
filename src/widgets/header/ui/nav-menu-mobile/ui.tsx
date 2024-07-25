@@ -46,7 +46,7 @@ const NavMenuMobile = () => {
                 viewBox="0 0 24 24"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="m10.94 12-5.95 5.94L6.05 19 12 13.06 17.94 19 19 17.94 13.06 12 19 6.05l-1.06-1.06L12 10.93 6.05 4.99 4.99 6.05 10.94 12Z"
                 />
               </svg>

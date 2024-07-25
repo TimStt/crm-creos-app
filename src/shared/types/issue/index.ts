@@ -3,4 +3,6 @@ export type {
   ICalcOfdataForClosedTasksArgs,
   IIssueWithNumberWeek,
   ICountOfStatuses,
+  IIssuesInitialState,
+  IWeeklySortedValues,
 } from "./types";

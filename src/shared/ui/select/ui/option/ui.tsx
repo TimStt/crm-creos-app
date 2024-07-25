@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import cls from "classnames";
 import style from "../../select.module.scss";
 import { ISelectUI } from "@/shared/types/ui";
+import { useKeyHandler } from "./hooks/use-key-handler";
 
 interface OptionProps {
   item: string;
@@ -10,6 +11,7 @@ interface OptionProps {
   value: ISelectUI["value"];
   type: ISelectUI["type"];
   hiddenTextOption: ISelectUI["hiddenTextOption"];
+  setIsOpenList: (state: boolean) => void;
 }
 
 const Option = ({
@@ -19,25 +21,18 @@ const Option = ({
   onChange,
   value,
   hiddenTextOption,
+  setIsOpenList,
 }: OptionProps) => {
   const refOption = React.useRef<HTMLLIElement>(null);
   const isChecked = (item: string) => value?.split(",").includes(item);
-  useEffect(() => {
-    const option = refOption.current;
-    if (!option) return;
 
-    const handleEnterPress = (event: KeyboardEvent) => {
-      if (document.activeElement === option && event.key === "Enter") {
-        onChange(item);
-      }
-    };
+  useKeyHandler(refOption, onChange, item, setIsOpenList);
 
-    option.addEventListener("keydown", handleEnterPress);
+  const onChangeOption = (item: string) => {
+    onChange(item);
+    setIsOpenList(false);
+  };
 
-    return () => {
-      option.removeEventListener("keydown", handleEnterPress);
-    };
-  }, [value, onChange, item]);
   return (
     <li
       key={`${item}-${index}`}
@@ -66,9 +61,14 @@ const Option = ({
         <input
           className={style.root__checkbox}
           id={`${item}-${index}`}
-          type={type === "multiple" ? "checkbox" : "radio"}
+          type={
+            {
+              multiple: "checkbox",
+              single: "radio",
+            }[type]
+          }
           checked={isChecked(item) || false}
-          onChange={() => onChange(item)}
+          onChange={() => onChangeOption(item)}
         />
         <span>{item}</span>
         <span className="visually-hidden">

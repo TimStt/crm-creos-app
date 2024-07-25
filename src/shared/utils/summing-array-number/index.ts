@@ -1,0 +1,1 @@
+export { summingArrayNumber } from "./utils";

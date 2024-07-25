@@ -4,7 +4,7 @@ export const useActionsPagination = (totalCount: number, limitPage: number) => {
   const { query } = usePathname();
 
   const page = parseInt(query.get("page") as string, 10);
-  console.log(page);
+
   const lengthPage = Math.ceil(totalCount / limitPage);
 
   const createHref = (index: number) => {

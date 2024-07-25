@@ -3,7 +3,7 @@ import cls from "classnames";
 import { selectorLocale } from "@/shared/stores/locale-translate";
 import style from "./statistics-finances-tasks.module.scss";
 import { Spinner } from "@/shared/ui/spinner";
-import { useDataFinancesTasks } from "./hooks/useDataFinancesTasks";
+import { useDataFinancesTasks } from "./hooks/use-data-finances-tasks";
 import { localeTranslate } from "@/shared/config/locale-translate";
 import ListCharts from "./ui/list-charts/ui";
 import { SelectWeekAgo } from "./ui/select-week-ago";
@@ -15,7 +15,7 @@ const StatisticFinancesTasks = () => {
 
   const { titles, time } = localeTranslate[locale];
 
-  const { dataByFinancesTasks, spinner } = useDataFinancesTasks();
+  const { dataByFinancesTasks, loadingIssues } = useDataFinancesTasks();
 
   return (
     <section className={style.root}>
@@ -23,7 +23,7 @@ const StatisticFinancesTasks = () => {
       <h2 className={cls(style.root__title, "title-h2-fluid")}>
         {titles.statistics_finances_tasks}
       </h2>{" "}
-      {!spinner ? (
+      {!loadingIssues ? (
         <div className={style.root__wrapper}>
           <span>
             {" "}

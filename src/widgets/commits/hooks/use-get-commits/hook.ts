@@ -1,21 +1,22 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getLastCommitsWithUssueThunk,
-  selectorLastCommits,
-  selectorloadingCommits,
-} from "../../store";
+import { useEffect, useState } from "react";
+
+import { IComment } from "@/shared/types/comment";
+
+import { getComments } from "@/shared/api/commits/get-commets";
+import { sortByLastComments } from "../../utils/sort-by-last-comments";
 
 export const useGetCommits = () => {
-  const lastCommits = useSelector(selectorLastCommits);
-  const loadingCommits = useSelector(selectorloadingCommits);
-  const dispatch = useDispatch<AppDispatch>();
+  const [lastCommits, setLastCommits] = useState<IComment[]>([]);
+  const [loadingCommits, setLoadingCommits] = useState<boolean>(false);
 
+  // получение последних комментариев с последними задачами
   useEffect(() => {
-    setTimeout(() => {
-      dispatch(getLastCommitsWithUssueThunk({}));
-    }, 10000);
-  }, [dispatch]);
+    const getLastCommits = async () => {
+      const lastCommits = await getComments({ setSpinner: setLoadingCommits });
+      setLastCommits(sortByLastComments(lastCommits, "date_created", 10));
+    };
+    getLastCommits();
+  }, []);
 
   return {
     lastCommits,

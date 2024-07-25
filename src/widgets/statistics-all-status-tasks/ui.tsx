@@ -1,9 +1,5 @@
-import { useTriggerGetDataIssue } from "@/features/closed-tasks-by-work-week";
-
 import { Spinner } from "@/shared/ui/spinner";
-import { ArcElement, Chart, ChartData, Legend, Tooltip } from "chart.js";
-import { useEffect, useState } from "react";
-import { dataStatisticsStatus } from "./config/data-statistics-status";
+import { ArcElement, Chart, Legend, Tooltip } from "chart.js";
 import { localeTranslate } from "@/shared/config/locale-translate";
 import { selectorLocale } from "@/shared/stores/locale-translate";
 import { useSelector } from "react-redux";
@@ -14,34 +10,17 @@ import ChartDataLabels from "chartjs-plugin-datalabels";
 import { optionsPie } from "./config/options-pie";
 import { selectorThemeSwitcher } from "@/shared/stores/theme-swither";
 
+import { useGetAllStatusTasks } from "./hooks/use-get-all-status-tasks";
+
 Chart.register(ArcElement, ChartDataLabels, Legend, Tooltip);
 
 const StatisticsAllStatusTasks = () => {
-  const { spinner, griggerApiGetIssues } = useTriggerGetDataIssue({
-    statisticsAllStatuses: true,
-  });
   const locale = useSelector(selectorLocale);
   const theme = useSelector(selectorThemeSwitcher);
 
   const { titles, other } = localeTranslate[locale];
 
-  const [dataByTasksByStatus, setDataByTasksByStatus] =
-    useState<ChartData<"pie"> | null>(null);
-
-  useEffect(() => {
-    const getData = async () => {
-      const data = await griggerApiGetIssues();
-      if (data?.countOfStatuses && data?.totalCountTasks) {
-        setDataByTasksByStatus(
-          dataStatisticsStatus(data.countOfStatuses, locale)
-        );
-      }
-    };
-
-    getData();
-  }, [griggerApiGetIssues, locale]);
-
-  console.log(dataByTasksByStatus);
+  const { dataByTasksByStatus, loadingIssues } = useGetAllStatusTasks();
 
   return (
     <section className={style.root}>
@@ -49,7 +28,7 @@ const StatisticsAllStatusTasks = () => {
         {titles.statistics_all_statuses_tasks}
       </h2>
 
-      {!spinner ? (
+      {!loadingIssues ? (
         !!dataByTasksByStatus ? (
           <Pie
             className={style.root__chart}
@@ -58,13 +37,11 @@ const StatisticsAllStatusTasks = () => {
           />
         ) : (
           <>
-            {" "}
             <span>{other.no_data}</span>{" "}
           </>
         )
       ) : (
         <div className={style.root__spinner}>
-          {" "}
           <Spinner size={50} />{" "}
         </div>
       )}

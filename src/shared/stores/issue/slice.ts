@@ -1,30 +1,32 @@
 import { getIssues } from "@/shared/api/issue/get-issues";
+import { IIssue, IIssuesInitialState } from "@/shared/types/issue";
 
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export const getIssuesThunk = createAsyncThunk(
-  "topDesigner/getDesigners",
-  async () => {
-    const designers = await getIssues();
-    return designers;
-  }
-);
+export const getIssuesThunk = createAsyncThunk("issues/getIssues", async () => {
+  return getIssues({});
+});
 
-const initialState = {
+const initialState: IIssuesInitialState = {
   loading: false,
+  issues: [],
 };
 
-export const issueSlice = createSlice({
-  name: "issue",
+export const issuesSlice = createSlice({
+  name: "issues",
   initialState,
 
   reducers: {},
 
   extraReducers: (builder) => {
     builder
-      .addCase(getIssuesThunk.fulfilled, (state) => {
-        state.loading = false;
-      })
+      .addCase(
+        getIssuesThunk.fulfilled,
+        (state, action: PayloadAction<IIssue[]>) => {
+          state.loading = false;
+          state.issues = action.payload;
+        }
+      )
       .addCase(getIssuesThunk.pending, (state) => {
         state.loading = true;
       })
@@ -34,6 +36,7 @@ export const issueSlice = createSlice({
   },
 });
 
-export const selectorLoading = (state: RootState) => state.topDesigner.loading;
+export const selectorLoadingIssues = (state: RootState) => state.issues.loading;
+export const selectorIssues = (state: RootState) => state.issues.issues;
 
-export default issueSlice.reducer;
+export default issuesSlice.reducer;

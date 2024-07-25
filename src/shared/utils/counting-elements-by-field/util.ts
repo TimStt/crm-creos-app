@@ -1,7 +1,8 @@
-export const countingElementsByField = <T extends Array<Record<string, any>>>(
-  data: T,
-  field: string,
-  value: string
+export const countingElementsByField = <T, K extends keyof T, V extends T[K]>(
+  data: T[],
+  field: K,
+  value?: V
 ) => {
-  return data.filter((item) => item[field] === value).length;
+  return data.filter((item) => (value ? item[field] === value : item[field]))
+    .length;
 };

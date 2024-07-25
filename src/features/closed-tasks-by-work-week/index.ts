@@ -1,1 +1,1 @@
-export { useTriggerGetDataIssue } from "./hooks/trigger-get-data-issue";
+export { calcOfdataForClosedTasks } from "./closed-tasks-by-work-week.ts";

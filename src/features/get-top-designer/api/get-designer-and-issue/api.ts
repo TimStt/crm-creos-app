@@ -1,18 +1,27 @@
 import { getDesigners } from "@/shared/api/disigner/get-designers";
 import { getIssues } from "@/shared/api/issue/get-issues";
+import { TSetSpinner } from "@/shared/types/api";
 
 export const getDesignersAndIssue = async ({
   setSpinner,
 }: {
-  setSpinner: (isLoading: boolean) => void;
+  setSpinner: TSetSpinner;
 }) => {
   try {
     setSpinner(true);
-    const { results } = await getDesigners({ limit: "128" });
+    const [designers, issues] = await Promise.all([
+      getDesigners({
+        queryParams: {
+          limit: "128",
+        },
+      }),
+      getIssues({}),
+    ]);
 
-    const issue = await getIssues();
-
-    return { designers: results, issue };
+    return {
+      designers: designers.results,
+      issue: issues,
+    };
   } catch (error) {
     console.log((error as Error).message);
   } finally {

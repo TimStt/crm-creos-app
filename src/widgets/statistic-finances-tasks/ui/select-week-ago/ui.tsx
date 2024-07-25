@@ -5,8 +5,9 @@ import { localeTranslate } from "@/shared/config/locale-translate";
 import { Select } from "@/shared/ui/select";
 import style from "./select-week-ago.module.scss";
 import { useChangeWeek } from "./hooks/use-change-week";
+import { ISelectWeekAgoUI } from "@/shared/types/ui/types";
 
-const SelectWeekAgo = ({ dataListWeekAgo }: { dataListWeekAgo: string[] }) => {
+const SelectWeekAgo = ({ dataListWeekAgo }: ISelectWeekAgoUI) => {
   const locale = useSelector(selectorLocale);
   const { titles, time } = localeTranslate[locale];
 

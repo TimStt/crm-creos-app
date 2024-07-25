@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const Commits = () => {
   const locale = useSelector(selectorLocale);
 
-  const { titles } = localeTranslate[locale];
+  const { titles, other } = localeTranslate[locale];
 
   const { lastCommits, loadingCommits } = useGetCommits();
 
@@ -35,7 +35,7 @@ const Commits = () => {
         </>
       ) : (
         <ul>
-          <li>No commits</li>
+          <li>{other.no_comments}</li>
         </ul>
       )}
     </section>

@@ -13,6 +13,10 @@ export interface ISelectUI {
   placeholder?: string;
 }
 
+export type ISelectWeekAgoUI = Partial<ISelectUI> & {
+  dataListWeekAgo: string[];
+};
+
 export interface IPaginationUI {
   totalCount: number;
   limitPage: number;

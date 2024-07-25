@@ -8,6 +8,14 @@ export interface IQueryParams {
   page?: string;
 }
 
-export interface IGetCommentsWithIssue {
+export interface IGetComments {
   limit?: number;
+  setSpinner?: TSetSpinner;
 }
+
+export interface IGetDesigners {
+  queryParams?: IQueryParams;
+  setSpinner?: TSetSpinner;
+}
+
+export type TSetSpinner = (state: boolean) => void;

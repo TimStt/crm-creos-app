@@ -1,1 +1,6 @@
-export type { IQueryParams, IGetCommentsWithIssue } from "./types";
+export type {
+  IQueryParams,
+  IGetComments,
+  IGetDesigners,
+  TSetSpinner,
+} from "./types";

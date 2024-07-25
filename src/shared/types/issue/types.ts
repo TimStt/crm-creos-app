@@ -21,16 +21,20 @@ export interface IIssueWithNumberWeek extends IIssue {
   numberWeek: number;
 }
 
+export interface IWeeklySortedValues {
+  week: number;
+  value: number;
+}
+
 export type ICalculatedFieldsByIssue =
-  | (keyof IIssue & "received_from_client")
-  | (keyof IIssue & "send_to_project_manager");
+  | "received_from_client"
+  | ["send_to_project_manager", "send_to_account_manager", "send_to_designer"];
 
 export type TStatusIssues = "Done" | "In Progress" | "New";
 
 export interface ICalcOfdataForClosedTasksArgs {
   weeksAgo?: number;
   issues: IIssue[];
-  statisticsAllStatuses?: boolean;
 }
 
 export type IUseTriggerGetDataIssueArgs = Omit<
@@ -48,7 +52,7 @@ export interface IFieldsByFinancesTasks {
   finances: IFinaces;
 
   allTasksForPeriod: IIssueWithNumberWeek[];
-  totalCountTasks: number;
+
   periodWeeksNumber: number[];
 }
 
@@ -56,6 +60,11 @@ export interface IFinaces {
   profit: number[];
   expenditure: number[];
   variance: number[];
+}
+
+export interface IIssuesInitialState {
+  loading: boolean;
+  issues: IIssue[];
 }
 
 export type TDataChartFinancesTasks = ChartData<"bar">;

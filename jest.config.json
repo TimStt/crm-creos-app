@@ -1,0 +1,17 @@
+{
+  "preset": "ts-jest",
+  "modulePaths": ["<rootDir>/src"],
+  "testEnvironment": "jest-environment-jsdom",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^@/shared/(.*)$": "<rootDir>/src/shared/$1"
+  },
+  "transform": {
+    "^.+\\.(ts|tsx)?$": [
+      "ts-jest",
+      { "diagnostics": { "ignoreCodes": ["TS151001"] } }
+    ],
+    "^.+\\.(js|jsx)$": "babel-jest"
+  }
+}

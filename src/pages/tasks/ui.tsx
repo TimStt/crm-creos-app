@@ -6,9 +6,12 @@ import style from "./tasks-page.module.scss";
 import { selectorLocale } from "@/shared/stores/locale-translate";
 import { useSelector } from "react-redux";
 import { localeTranslate } from "@/shared/config/locale-translate";
+import { useGetIssues } from "@/shared/hooks/use-get-issues";
 
 const Tasks: React.FC = () => {
   const locale = useSelector(selectorLocale);
+
+  useGetIssues();
 
   const { titles } = localeTranslate[locale];
   return (

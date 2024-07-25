@@ -14,27 +14,20 @@ export const useGetDesigners = () => {
   const [designersResponse, setDesignersResponse] =
     useState<IDesignersResponseWithCountungTasks>();
 
+  // получение дизайнеров
   useEffect(() => {
     const queryParams = Object.fromEntries(query.entries());
     const fetchData = async () => {
-      try {
-        setSpinner(true);
-        const data = await getDesigners(queryParams);
-        const designerWithCounting = countingTasksByDesigner(data.results);
-        const newData = {
-          ...data,
-          results: designerWithCounting,
-        };
+      {
+        const data = await getDesigners({ queryParams, setSpinner });
 
-        setDesignersResponse(newData);
-        console.log("123");
-      } catch (error) {
-        console.log((error as Error).message);
-      } finally {
-        setSpinner(false);
+        setDesignersResponse({
+          ...data,
+          // считаем по количество задач для каждого дизайнера
+          results: countingTasksByDesigner(data.results),
+        });
       }
     };
-
     fetchData();
   }, [query]);
 

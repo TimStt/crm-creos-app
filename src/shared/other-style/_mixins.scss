@@ -1,5 +1,7 @@
 // position
 
+@use "sass:math";
+
 @mixin flex-column {
   display: flex;
   flex-direction: column;
@@ -32,7 +34,7 @@
 }
 
 @mixin fluid-text($max: 48, $min: 16, $property: font-size) {
-  #{$property}: clamp(#{$min}px, #{$max / 1527 * 100}vw, #{$max}px);
+  #{$property}: clamp(#{$min}px, #{math.div($max, 1527) * 100}vw, #{$max}px);
 }
 
 @mixin reset-link {
@@ -82,7 +84,7 @@
   }
 }
 @mixin px-to-rem($property, $value) {
-  $remValue: $value / 16;
+  $remValue: math.div($value, 16);
   $pxValue: ($value);
   #{$property}: #{$remValue}rem;
 }

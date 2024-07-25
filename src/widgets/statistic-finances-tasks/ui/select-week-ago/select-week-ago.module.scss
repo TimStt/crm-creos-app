@@ -1,9 +1,10 @@
 .root {
+  --bgColorDropDown: var(--backgraund-color);
   max-width: 250px;
   width: 100%;
   margin-left: auto;
-  position: sticky;
-  top: 0;
+
+  background-color: var(--bgColorDropDown);
 
   @media (max-width: 570px) {
     margin: 36px auto;

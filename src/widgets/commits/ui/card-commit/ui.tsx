@@ -7,12 +7,11 @@ import { getRelativeDate } from "@/shared/utils/get-relative-date";
 
 const CardCommit = ({ commit }: { commit: IComment }) => {
   const locale = useSelector(selectorLocale);
-  const { mounth, days, hours, min } = getRelativeDate(
-    new Date(commit.date_created)
-  );
+  const times = getRelativeDate(new Date(commit.date_created), true);
 
   const { time: timeTranslate, other: otherTranslate } =
     localeTranslate[locale];
+
   const { issue } = commit;
   return (
     <article className={style.root}>
@@ -26,7 +25,9 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
           {" "}
           {localeTranslate[locale].other.designer_name}:
         </label>
-        <span id={`${commit.id}-date`}>{commit.designer.username}</span>
+        <span id={`${commit.id}-designer_name`}>
+          {commit.designer.username}
+        </span>
       </div>
 
       <div className={style.root__group}>
@@ -34,14 +35,15 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
           {" "}
           {otherTranslate.a_comment_has_been_left}:
         </label>
-        <span>
-          {`${mounth ? timeTranslate[`_${mounth}_months_ago`] : ""} ${
-            days ? timeTranslate[`_${days}_days_ago`] : ""
-          } ${timeTranslate[`_${hours}_hours_ago`]} ${
-            timeTranslate[`_${min}_minutes_ago`]
-          } ${timeTranslate.ago}
-  `}
-        </span>
+        <p className={style.root__time} id={`${commit.id}-date`}>
+          {Object.entries(times).map(
+            ([key, value]) =>
+              !!value && (
+                <span key={key}>{timeTranslate[`_${value}_${key}_ago`]}</span>
+              )
+          )}
+          <span>{timeTranslate.ago.toLowerCase()}</span>
+        </p>
       </div>
 
       <div className={style.root__group}>
@@ -49,7 +51,10 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
           {" "}
           {localeTranslate[locale].other.comment}:
         </label>
-        <p className={style.root__discription}> {commit.message}</p>
+        <p className={style.root__discription} id={`${commit.id}-comment`}>
+          {" "}
+          {commit.message}
+        </p>
       </div>
 
       <div className={style.root__group}>
@@ -57,51 +62,8 @@ const CardCommit = ({ commit }: { commit: IComment }) => {
           {" "}
           {localeTranslate[locale].other.task}:
         </label>
-        <span> {issue}</span>
+        <span id={`${commit.id}-task`}> {issue}</span>
       </div>
-
-      {/* <details className={style.root__accordion}>
-        <summary
-          className={style.root__accordion__summary}
-          role="term"
-          aria-details="content-discription"
-          title={localeTranslate[locale].other.open_task_description}
-        >
-          <span>{localeTranslate[locale].other.task}:</span>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            fill="none"
-          >
-            <path
-              fill="#E8E9EA"
-              fill-rule="evenodd"
-              d="M11.25 12.75V21h1.5v-8.25H21v-1.5h-8.25V3h-1.5v8.25H3v1.5h8.25Z"
-            />
-          </svg>
-        </summary>
-      </details>
-      <div
-        className={style.root__accordion__content}
-        id="content-discription"
-        role="definition"
-      >
-        <div className={style.root__accordion__wrapper}>
-          <span>
-            {localeTranslate[locale].other.name_project}: {issue}
-          </span>
-
-          <span>
-            {localeTranslate[locale].other.status}: {issue.status}
-          </span>
-
-          <p className={style.root__discription}>
-            {localeTranslate[locale].other.summury}: {issue.summary}
-          </p>
-        </div>
-      </div> */}
     </article>
   );
 };

@@ -1,1 +1,6 @@
-export { issueSlice, selectorLoading, getIssuesThunk } from "./slice";
+export {
+  issuesSlice,
+  selectorLoadingIssues,
+  getIssuesThunk,
+  selectorIssues,
+} from "./slice";

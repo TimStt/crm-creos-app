@@ -1,1 +1,0 @@
-export { getCommentsWithIssue } from "./api";

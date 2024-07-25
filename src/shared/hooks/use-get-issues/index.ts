@@ -1,0 +1,1 @@
+export { useGetIssues } from "./hook";

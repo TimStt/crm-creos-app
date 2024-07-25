@@ -1,1 +1,0 @@
-export { useTriggerGetDataIssue } from "./hook";

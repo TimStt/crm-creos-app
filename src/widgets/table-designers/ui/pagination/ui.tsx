@@ -11,7 +11,6 @@ const Pagination = ({ totalCount, limitPage }: IPaginationUI) => {
   const locale = useSelector(selectorLocale);
   const { page, lengthPage, disabledDoted, visibleButton } =
     useActionsPagination(totalCount, limitPage);
-  console.log("render pagination", page);
 
   if (totalCount)
     return (

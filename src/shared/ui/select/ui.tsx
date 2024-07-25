@@ -80,6 +80,7 @@ const Select = ({
             onChange={onChange}
             value={value}
             hiddenTextOption={hiddenTextOption}
+            setIsOpenList={setIsOpenList}
           />
         ))}
       </ul>

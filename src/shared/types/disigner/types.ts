@@ -1,4 +1,5 @@
 import { ICountOfStatuses, IIssue } from "../issue/types";
+import { ITime } from "../time";
 
 export interface IDesigner {
   id: string;
@@ -34,6 +35,13 @@ export interface IUseGetTopDesignerParams {
   medianUnit?: TUnitData;
 }
 
+export interface ITopDesignersFind {
+  designers: IDesigner[];
+  issue: IIssue[];
+  limit: number;
+  medianUnit: TUnitData;
+}
+
 export interface IDesignersResponse {
   count: number;
   results: IDesigner[];
@@ -50,4 +58,4 @@ export type IDesignersResponseWithCountungTasks = Omit<
   results: IDesignersWithCountungTasks[];
 };
 
-export type TUnitData = "hours" | "days" | "min" | "mounth";
+export type TUnitData = keyof ITime;
