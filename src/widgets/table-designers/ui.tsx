@@ -16,7 +16,7 @@ const TableDesigners = () => {
   const { designersResponse, spinner } = useGetDesigners();
   const locale = useSelector(selectorLocale);
 
-  const { titles } = localeTranslate[locale];
+  const { titles, other } = localeTranslate[locale];
 
   useSetDefoultQuery();
 
@@ -49,7 +49,9 @@ const TableDesigners = () => {
               />
             </>
           ) : (
-            <span>Нет данных :(</span>
+            <div className={style.root__not_found}>
+              <h2 className="title-h2-fluid">{other.designers_not_found}</h2>
+            </div>
           )}
         </>
       ) : (

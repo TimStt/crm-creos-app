@@ -36,6 +36,9 @@ body {
     --theme: "light";
   }
 }
+#root {
+  height: 100dvh;
+}
 
 body {
   font-family: var(--font-family-base);

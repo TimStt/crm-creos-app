@@ -1,6 +1,7 @@
 import { HTMLAttributes } from "react";
 import { IDesignersWithCountungTasks } from "../disigner";
 import { TLocaleTranslate } from "../swithed";
+import { IDesigner, IDesignerTop, TUnitData } from "../disigner/types";
 
 export interface ISelectUI {
   dataList: string[];
@@ -11,6 +12,11 @@ export interface ISelectUI {
   title?: string;
   hiddenTextOption?: string;
   placeholder?: string;
+}
+
+export interface ICardDesignerTopUI {
+  designer: IDesignerTop;
+  UNIT_TOP: TUnitData;
 }
 
 export type ISelectWeekAgoUI = Partial<ISelectUI> & {

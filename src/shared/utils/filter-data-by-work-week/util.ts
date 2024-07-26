@@ -1,4 +1,4 @@
-import { getNumberWeekWork } from "@/shared/utils/get-number-week-work";
+import { getNumberWeekWork } from "../../../shared/utils/get-number-week-work";
 
 export const filterDataByWorkWeek = <T, F extends keyof T>(
   issues: T[],

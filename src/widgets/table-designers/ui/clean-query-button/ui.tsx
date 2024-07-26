@@ -14,7 +14,7 @@ const CleanQueryButton = ({ classname }: { classname?: string }) => {
     navigate(`?`);
   };
 
-  const disabled = !query.get("ordering") || !query.get("status");
+  const disabled = !query.get("ordering") && !query.get("status");
 
   return (
     <button

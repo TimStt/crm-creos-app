@@ -42,7 +42,8 @@ export const localeTranslate = {
       sort_by: "Сортировать по",
       filter_by_status: "Фильтровать по статусу",
       clean_query: "Сбросить фильтры",
-      no_comments: "Нет комментариев",
+      no_comments: "Нет комментариев :(",
+      designers_not_found: "Такие дизайнеры не найдены :(",
     },
     titles: {
       recent_comments_on_the_tasks: "Последние комментарии к задачам",
@@ -68,8 +69,8 @@ export const localeTranslate = {
       ago: "Назад",
       hours: "Часы",
       days: "Дни",
-      min: "Минуты",
-      mounth: "Месяцы",
+      minutes: "Минуты",
+      months: "Месяцы",
       select_period_time: "Выбрать период времени",
 
       _30_days_ago: "30 дней",
@@ -260,7 +261,8 @@ export const localeTranslate = {
 
       change_site_language_to_Ru: "Change site language to Russian",
       change_site_language_to_En: "Change site language to English",
-      no_comments: "No comments",
+      no_comments: "No comments :(",
+      designers_not_found: "Designers not found :(",
       clean_query: "Clean query",
     },
     titles: {

@@ -5,4 +5,5 @@ export type {
   IPaginationButtonPageUI,
   IDotedPageUI,
   IModelUI,
+  ICardDesignerTopUI,
 } from "./types";

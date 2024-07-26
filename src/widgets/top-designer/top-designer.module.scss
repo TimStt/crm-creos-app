@@ -38,6 +38,32 @@
     min-height: 300px;
   }
 
+  &__item {
+    counter-increment: new 1;
+    max-width: 400px;
+    width: 100%;
+
+    &:first-child h3::before {
+      background: var(--colorBgMarkerFirst);
+    }
+
+    &:nth-child(2) h3::before {
+      background: var(--colorBgMarkerTwo);
+    }
+
+    &:nth-child(3) h3::before {
+      background: var(--colorBgMarkerThree);
+    }
+
+    &:nth-child(10n + 0) h3::before {
+      margin-right: calc(var(--sizeMarkerList) / 2.8 * -1);
+    }
+
+    &:nth-child(2n-1) {
+      margin-left: auto;
+    }
+  }
+
   &__list {
     counter-reset: new 0;
     list-style-type: none;
@@ -48,146 +74,13 @@
     @include mobile {
       gap: 96px;
     }
-
-    &__item {
-      counter-increment: new 1;
-      max-width: 400px;
-      width: 100%;
-
-      &:first-child > .root__list__title::before {
-        background: var(--colorBgMarkerFirst);
-      }
-
-      &:nth-child(2) > .root__list__title::before {
-        background: var(--colorBgMarkerTwo);
-      }
-
-      &:nth-child(3) > .root__list__title::before {
-        background: var(--colorBgMarkerThree);
-      }
-
-      &:nth-child(10n + 0) > .root__list__title::before {
-        margin-right: calc(var(--sizeMarkerList) / 2.8 * -1);
-      }
-
-      &:nth-child(2n-1) {
-        margin-left: auto;
-      }
-    }
-
-    &__title {
-      @include flex-center-center;
-      margin-bottom: 15px;
-      font-size: 24px;
-
-      font-weight: 700;
-      line-height: 31px;
-      width: 100%;
-      &::before {
-        content: counter(new);
-
-        background: var(--colorBgMarker);
-        @include square(var(--sizeMarkerList));
-        border-radius: 50%;
-        box-shadow: 0 9px 34px 0 rgba(0, 0, 0, 0.2),
-          0 0 32px 0 rgba(0, 0, 0, 0.1);
-        font-size: var(--sizeFontMarker);
-
-        font-weight: 700;
-        color: var(--colorTextMarker);
-        display: inline-flex;
-        align-items: center;
-        overflow: hidden;
-        line-height: 30px;
-        margin-right: calc(var(--sizeMarkerList) / 2.3 * -1);
-      }
-
-      span {
-        max-width: 150px;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-    }
-  }
-
-  &__accordion {
-    $this: &;
-
-    --border: 1px solid var(--color-gray);
-
-    width: 100%;
-
-    &__img {
-      max-width: 100px;
-      width: 100%;
-      height: auto;
-      border-radius: 50%;
-      overflow: hidden;
-      margin: auto;
-    }
-
-    &__summary {
-      width: 100%;
-      @include flex-center-beetwen;
-      padding-block: 12px;
-      background-color: var(--color-white-opacity6);
-      padding-inline: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-
-      .root__accordion[open] > & {
-        svg {
-          transform: rotate(44deg);
-        }
-      }
-      &::marker {
-        content: "";
-      }
-
-      span {
-        font-size: 16px;
-        font-weight: 400;
-      }
-
-      svg {
-        @media (prefers-reduced-motion: no-preference) {
-          transition: var(--duration);
-          transition-property: transform;
-        }
-        transition-duration: var(--duration);
-        transition-property: transform, fill;
-        width: 18px;
-        height: 18px;
-        fill: var(--color-main-text);
-
-        &:hover {
-          fill: var(--color-accent);
-        }
-      }
-    }
-
-    &__content {
-      display: grid;
-      --duration: 0.8s;
-      transition-property: grid-template-rows, padding-block;
-      grid-template-rows: 0fr;
-      transition: var(--duration);
-
-      #{$this}[open] + & {
-        grid-template-rows: 1fr;
-
-        padding-block: 20px;
-      }
-    }
-
-    &__wrapper {
-      overflow: hidden;
-      @include flex-gap(12px);
-      flex-direction: column;
-    }
   }
 
   &__title {
     margin-bottom: 48px;
+  }
+
+  &__not_found {
+    height: 30%;
   }
 }

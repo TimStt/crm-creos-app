@@ -1,8 +1,9 @@
-@import "../../shared/other-style/mixins";
+@import "../../shared/other-style/mixins", "../../shared/other-style/adaptive";
 
 .root {
   margin-block: 96px 72px;
-
+  min-height: 70dvh;
+  @include flex-column;
   --bgCleanButton: rgb(233, 75, 75);
   --colorCleanButton: var(--color-white);
   --hoverBgCleanButton: var(--color-white-opacity40);
@@ -27,6 +28,10 @@
       gap: 20px;
       flex-wrap: wrap;
       margin-bottom: 32px;
+
+      @media (max-width: 675px) {
+        justify-content: center;
+      }
     }
   }
 
@@ -66,6 +71,15 @@
       width: 24px;
       height: 24px;
       fill: var(--colorCleanButton);
+    }
+  }
+
+  &__not_found {
+    flex: 2;
+    @include flex-center-center;
+
+    h2 {
+      text-align: center;
     }
   }
 }

@@ -1,4 +1,4 @@
-import { filterDataByWorkWeek } from "@/shared/utils/filter-data-by-work-week/util";
+import { filterDataByWorkWeek } from "../../shared/utils/filter-data-by-work-week/util";
 import { ICalcOfdataForClosedTasksArgs } from "../../shared/types/issue";
 import { filtersArrayByField } from "../../shared/utils/filters-array-by-field";
 import { getNumberWeekWork } from "../../shared/utils/get-number-week-work";
